@@ -13,10 +13,6 @@
     "@mui/material-nextjs": "^7.3.6",
     "@mui/x-data-grid": "^7.29.0",
     "@supabase/supabase-js": "^2.39.0",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.9",
     "chart.js": "^4.4.8",
     "chartjs-plugin-annotation": "^3.1.0",
@@ -32,39 +28,22 @@
     "react-markdown": "^10.0.0",
     "recharts": "^2.15.1",
     "uuid": "^13.0.0",
-    "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "node scripts/dev.mjs",
     "bugs": "node scripts/bug-update-server.mjs",
     "build": "next build",
-    "lint": "next lint",
-    "prepare": "husky || true"
-  },
-  "eslintConfig": {
-    "extends": [
-      "next/core-web-vitals"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "lint": "biome lint",
+    "prepare": "husky || true",
+    "format": "biome format --write",
+    "check": "biome check"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.15",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^16.0.7",
     "husky": "^9.1.7",
     "typescript": "^5.6.0"
   }
