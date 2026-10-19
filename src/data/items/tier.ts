@@ -1,4 +1,4 @@
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 
 // helm for 4pc, shoulder for 2pc
 const tier = {

@@ -2,7 +2,7 @@ import TALENTS from "@data/specs/monk/mistweaver/talents";
 import SHARED from "@data/specs/monk/talents";
 import SPELLS from "@data/spells";
 import { CLASSES } from "@data/class";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import {
   modelMeleeRotation,
   modelMeleeRotationAt2Stacks,
@@ -11,7 +11,7 @@ import {
   modelRSKWithSCK,
   type ModelResult,
 } from "./model";
-import { type Player } from "@data/specs/monk/mistweaver/calcs";
+import type { Player } from "@data/specs/monk/mistweaver/calcs";
 import { RAINBOW_COLORS } from "@components/Buttons/RainbowCard";
 
 export type ComboResultSerialized = {

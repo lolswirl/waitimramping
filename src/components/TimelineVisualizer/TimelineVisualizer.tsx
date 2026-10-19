@@ -5,8 +5,9 @@ import { Box } from "@mui/material";
 import { ArrowUpward, ArrowDownward, Delete } from "@mui/icons-material";
 import { SwirlIconButton } from "@components/Buttons/SwirlIconButton";
 
-import spell, { calculateCastTime, calculateGCD } from '@data/spells/spell';
-import { specialization } from "@data/class";
+import type spell from '@data/spells/spell';
+import { calculateCastTime, calculateGCD } from '@data/spells/spell';
+import type { specialization } from "@data/class";
 import { applyBuffEffects } from '@data/buffs';
 
 import { iconLocalUrl, iconFallbackUrl } from '@util/wowhead';
@@ -224,7 +225,7 @@ export default function TimelineVisualizer({ selectedSpec, haste, rotations = []
         rotation.forEach(ability => {
           const isOffGCDInstant = (ability.castTime === 0 || ability.castTime === undefined) && ability.gcd === false;
           if (!isOffGCDInstant) {
-            let castTime = calculateCastTime(ability, haste);
+            const castTime = calculateCastTime(ability, haste);
             const baseGCD = calculateGCD(haste);
             const gcd = ability.replaceGCD !== undefined
               ? Math.min(ability.replaceGCD / (1 + haste / 100), baseGCD)
@@ -318,9 +319,9 @@ export default function TimelineVisualizer({ selectedSpec, haste, rotations = []
           const x = time * scale;
 
           const baseY = rotationIndex * ROW_TOTAL_HEIGHT;
-          let yOffset = 0;
+          const yOffset = 0;
 
-          let iconXOffset = Object.keys(offGCDStackMap).length * 55;
+          const iconXOffset = Object.keys(offGCDStackMap).length * 55;
 
           if (isOffGCDInstant) {
             const t = +time.toFixed(3);

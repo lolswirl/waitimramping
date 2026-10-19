@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState, useEffect, useRef } from 'react';
+import type React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Card, Divider, useMediaQuery, useTheme, } from '@mui/material';
 
 import TimelineVisualizer from '@components/TimelineVisualizer/TimelineVisualizer';
@@ -14,8 +15,8 @@ import { CONTENT_WIDTH } from '@components/Theme/tokens';
 
 import { useSpec } from '@context/SpecContext';
 
-import spell from '@data/spells/spell';
-import { CLASSES, specialization, getSpecializationByKey } from '@data/class';
+import type spell from '@data/spells/spell';
+import { CLASSES, type specialization, getSpecializationByKey } from '@data/class';
 import { getSpellById } from '@data/spells';
 
 import { useRotationManager } from '@hooks/useRotationManager';

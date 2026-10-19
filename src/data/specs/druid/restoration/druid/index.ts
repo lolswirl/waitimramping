@@ -1,4 +1,4 @@
-import { specialization } from '@data/class';
+import type { specialization } from '@data/class';
 import RESTORATION_DRUID_SPELLS from '@data/specs/druid/restoration/druid/spells';
 import RESTORATION_DRUID_ROTATIONS from '@data/specs/druid/restoration/druid/rotations';
 

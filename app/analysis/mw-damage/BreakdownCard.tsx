@@ -1,13 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Box, Collapse, Divider, Card, Typography, Tab, Tabs } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 import SpellButton from "@components/SpellButtons/SpellButton";
 import AbilityBar from "@components/AbilityBar/AbilityBar";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import { formatNumber } from "@util/stringManipulation";
-import { type ModelResult, type AbilityEntry } from "./model";
-import { type RotationConfig } from "./types";
+import type { ModelResult, } from "./model";
+import type { RotationConfig } from "./types";
 import { ICON } from "@components/Theme/tokens";
 
 type Props = {

@@ -31,7 +31,7 @@ export const useRotationManager = (options: UseRotationManagerOptions = {}) => {
             ...prev,
             {
                 ...spell,
-                ...(spell.hasOwnProperty("empowerLevel") ? { empowerLevel } : {}),
+                ...(Object.hasOwn(spell, "empowerLevel") ? { empowerLevel } : {}),
                 uuid: uuidv4(),
             }
         ]);

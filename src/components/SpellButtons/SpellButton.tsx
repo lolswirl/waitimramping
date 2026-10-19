@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import IconButtonBase from "./IconButtonBase";
 import type spell from "@data/spells/spell";
 

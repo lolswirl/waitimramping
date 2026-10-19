@@ -1,4 +1,4 @@
-import { specialization } from '@data/class';
+import type { specialization } from '@data/class';
 import HOLY_PALADIN_SPELLS from '@data/specs/paladin/holy/spells';
 import HOLY_PALADIN_ROTATIONS from '@data/specs/paladin/holy/rotations';
 import HOLY_PALADIN_BUGS from '@data/specs/paladin/holy/bugs';

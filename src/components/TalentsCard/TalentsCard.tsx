@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Card } from '@mui/material';
 import SpellButton from '@components/SpellButtons/SpellButton';
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 import { Group, rowLabel as baseRowLabel, rowSep } from '@components/StatsCard/StatsCard';
 import { FONT, HAIRLINE, ICON } from "@components/Theme/tokens";
-import { TalentMap, getTalentRank } from '@data/shared/engine';
+import { type TalentMap, getTalentRank } from '@data/shared/engine';
 
 export interface TalentItem {
   key: string;

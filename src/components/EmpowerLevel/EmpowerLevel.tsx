@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { Button, Box, useTheme } from "@mui/material";
 import { FONT, TINT, tintedControl } from "@components/Theme/tokens";
 

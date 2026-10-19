@@ -1,10 +1,11 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import type React from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box, Card, Typography, Tab, Tabs, Table, TableBody, TableCell, TableRow, Skeleton } from "@mui/material";
 import SpellButton from "@components/SpellButtons/SpellButton";
 import SwirlButton from "@components/Buttons/SwirlButton";
 import { Calculate } from "@mui/icons-material";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
 import type { ComboResultSerialized } from "./comboRank.worker";
 import { CONTENT_WIDTH, FONT, ICON } from "@components/Theme/tokens";

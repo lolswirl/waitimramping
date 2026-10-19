@@ -1,8 +1,7 @@
-import React from "react";
+import type React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { CHANGELOG } from "@data/changelog";
 import { formatDate } from "@util/stringManipulation";
-import { T } from "@util/T";
 
 const MAX_ENTRIES = 5;
 

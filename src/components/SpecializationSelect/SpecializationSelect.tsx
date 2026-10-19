@@ -1,12 +1,13 @@
 "use client";
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Box, MenuList } from '@mui/material';
 import Select from '@mui/material/Select';
 import { GlassMenu } from '@components/Glass';
 
 import SpecDisplay from "@components/SpecializationSelect/SpecDisplay";
 
-import { specialization, getSpecs, getSpecializationByKey } from '@data/class';
+import { type specialization, getSpecs, getSpecializationByKey } from '@data/class';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { BLUR, FIELD_HEIGHT, FONT } from "@components/Theme/tokens";
 

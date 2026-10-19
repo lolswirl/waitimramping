@@ -8,7 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { GlassTooltip } from "@components/Glass";
-import SwirlTable, { SwirlColumn } from "@components/SwirlTable/SwirlTable";
+import SwirlTable, { type SwirlColumn } from "@components/SwirlTable/SwirlTable";
 
 import PageHeader from "@components/PageHeader/PageHeader";
 import StatsCard, { Group, statsSummary, type StatsCardOptions } from "@components/StatsCard/StatsCard";
@@ -16,11 +16,12 @@ import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
 import { CONTENT_WIDTH, FONT, HAIRLINE, ICON, RADIUS } from "@components/Theme/tokens";
 import { SearchChip, SelectChip, SpecChip } from "@components/FilterChips/FilterChips";
 
-import spell, { CATEGORY, CATEGORY_COLORS, calculateCastTime } from "@data/spells/spell";
+import type spell from "@data/spells/spell";
+import { CATEGORY, CATEGORY_COLORS, calculateCastTime } from "@data/spells/spell";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 import { useSpec } from "@context/SpecContext";
-import { Player, SpellModifier, TalentMap, isTalentEnabled } from "@data/shared/engine";
+import { type Player, type SpellModifier, type TalentMap, isTalentEnabled } from "@data/shared/engine";
 import { getSpecEngine } from "@data/shared/specEngines";
 import type { HeroTree } from "@data/heroTalents";
 import TalentsCard from "@components/TalentsCard/TalentsCard";

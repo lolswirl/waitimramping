@@ -1,4 +1,4 @@
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 import type { Stats } from '@data/shared/stats';
 import type { SpecTalentConfig } from '@data/specs/monk/mistweaver/defaultTalents';
 import type CorePassive from '@data/core-passives/core-passive';
@@ -9,7 +9,7 @@ import RESTO_DRUID from '@data/specs/druid/restoration/druid';
 import RESTO_SHAMAN from '@data/specs/shaman/restoration';
 import PRESERVATION from '@data/specs/evoker/preservation';
 import HOLY_PALADIN from '@data/specs/paladin/holy';
-import { Bug } from '@data/bugs';
+import type { Bug } from '@data/bugs';
 
 type ClassInfo<TSpecs extends Record<string, specialization>> = {
   name: string;

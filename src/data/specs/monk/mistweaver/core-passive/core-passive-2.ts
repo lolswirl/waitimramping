@@ -1,4 +1,4 @@
-import CorePassive from '@data/core-passives/core-passive';
+import type CorePassive from '@data/core-passives/core-passive';
 import SPELLS from '@data/spells';
 import TALENTS from '@data/talents';
 

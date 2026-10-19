@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Dialog, Typography, Box } from "@mui/material";
 import LinkIcon from "@mui/icons-material/Link";
 import CheckIcon from "@mui/icons-material/Check";
@@ -9,7 +10,7 @@ import SwirlChip from "@components/SwirlChip/SwirlChip";
 import { SwirlIconButton } from "@components/Buttons/SwirlIconButton";
 import { GlassTooltip } from "@components/Glass";
 import { formatLogUrl } from "@util/stringManipulation";
-import { Bug, SEVERITY_COLORS, STATUS, STATUS_COLORS } from "@data/bugs";
+import { type Bug, SEVERITY_COLORS, STATUS, STATUS_COLORS } from "@data/bugs";
 import { FONT, HAIRLINE, ICON } from "@components/Theme/tokens";
 
 interface BugDialogProps {

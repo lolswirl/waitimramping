@@ -1,12 +1,13 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, InputBase, MenuItem, MenuList, Typography } from "@mui/material";
-import { SxProps, Theme } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material/styles";
 import { ExpandMore } from "@mui/icons-material";
 import { GlassMenu } from "@components/Glass";
 import SpecDisplay from "@components/SpecializationSelect/SpecDisplay";
 import { CHIP_HEIGHT, FONT, ICON, RADIUS, TINT } from "@components/Theme/tokens";
-import { specialization, getSpecs, getSpecializationByKey } from "@data/class";
+import { type specialization, getSpecs, getSpecializationByKey } from "@data/class";
 import { iconLocalUrl, iconFallbackUrl } from "@util/wowhead";
 
 const chipTitle = { fontSize: FONT.micro, fontWeight: 700, letterSpacing: 0.5, color: "text.disabled" };

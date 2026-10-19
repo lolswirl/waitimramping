@@ -1,4 +1,4 @@
-import { Popover, PopoverProps } from "@mui/material";
+import { Popover, type PopoverProps } from "@mui/material";
 import { BLUR } from "@components/Theme/tokens";
 
 export const GlassMenu = (props: PopoverProps) => {

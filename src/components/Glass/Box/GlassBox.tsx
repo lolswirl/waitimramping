@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@mui/material";
+import { Box, type BoxProps } from "@mui/material";
 import { BLUR } from "@components/Theme/tokens";
 
 interface GlassBoxProps extends BoxProps {

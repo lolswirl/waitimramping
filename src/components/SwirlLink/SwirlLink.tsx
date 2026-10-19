@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, TypographyProps } from "@mui/material";
+import type React from "react";
+import { Typography, type TypographyProps } from "@mui/material";
 
 interface SwirlLinkProps extends Omit<TypographyProps<"a">, "component"> {
     href: string;

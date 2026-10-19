@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { Box, MenuList, MenuItem, Typography } from '@mui/material';
 import { GlassMenu } from '@components/Glass/Menu';
-import { SxProps } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { CONTROL_HEIGHT, FONT } from "@components/Theme/tokens";
 

@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useState, useEffect } from "react";
 import { Box, Typography, Skeleton } from "@mui/material";
 import { RAINBOW_GRADIENT } from "@components/Buttons/RainbowCard";
 import SwirlButton from "@components/Buttons/SwirlButton";

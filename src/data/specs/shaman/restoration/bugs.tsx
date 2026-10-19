@@ -1,9 +1,7 @@
 import TALENTS from '@data/specs/shaman/restoration/talents';
 import spells from '@data/specs/shaman/restoration/spells';
-import { Bug, SEVERITY, STATUS } from "@data/bugs";
-import { TAGS } from "@data/shared/tags";
+import { type Bug, SEVERITY, } from "@data/bugs";
 import SpellLink from '@components/SpellLink';
-import React from 'react';
 
 const BUGS: Bug[] = [
     {

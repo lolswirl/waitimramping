@@ -1,4 +1,4 @@
-import { IconButton, IconButtonProps } from "@mui/material";
+import { IconButton, type IconButtonProps } from "@mui/material";
 
 interface NavIconButtonProps extends Omit<IconButtonProps, 'sx'> {
     hoverColor?: string;

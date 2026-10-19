@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { useBranchName, useIsNonProd } from "@lib/betaModeClient";
-import { T } from "@util/T";
 import SwirlButton from "@components/Buttons/SwirlButton";
 import { NavIconButton } from "@components/Buttons/NavIconButton";
 import { GlassBox } from "@components/Glass";

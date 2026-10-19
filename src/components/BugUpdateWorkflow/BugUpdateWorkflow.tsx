@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import {
     Dialog,
     TextField,
@@ -8,12 +9,11 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { ArrowBack, BugReport, Check, HelpOutline, RemoveCircleOutline, SkipNext } from "@mui/icons-material";
-import { Bug, STATUS } from "@data/bugs";
+import { type Bug, STATUS } from "@data/bugs";
 import { BugDetails, BUG_DIALOG_PAPER_SX } from "@components/BugDialog/BugDialog";
 import SwirlButton from "@components/Buttons/SwirlButton";
 import { SwirlIconButton } from "@components/Buttons/SwirlIconButton";
 import { GlassTooltip } from "@components/Glass";
-import SpellLink from "@components/SpellLink/SpellLink";
 import { FONT, HAIRLINE } from "@components/Theme/tokens";
 
 // served by scripts/bug-update-server.mjs (npm run bugs)

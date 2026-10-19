@@ -1,8 +1,7 @@
 import SPELLS from '@data/spells';
 import TALENTS from '@data/specs/paladin/holy/talents';
-import { Bug, SEVERITY, STATUS } from "@data/bugs";
+import { type Bug, SEVERITY, STATUS } from "@data/bugs";
 import SpellLink from '@components/SpellLink';
-import React from 'react';
 
 const BUGS: Bug[] = [
     {

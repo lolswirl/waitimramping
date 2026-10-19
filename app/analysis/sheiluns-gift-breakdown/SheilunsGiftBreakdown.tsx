@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState, useMemo } from "react";
+import type React from "react";
+import { useState, useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Box, Container, useTheme } from "@mui/material";
@@ -10,12 +11,12 @@ import StatsCard, { Group, statsSummary, type StatsCardOptions } from "@componen
 import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
 import { CONTENT_WIDTH } from "@components/Theme/tokens";
 
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import SHARED from "@data/specs/monk/talents";
 import { CLASSES } from "@data/class";
 import { calculateSheilunsGiftBreakdown } from "@data/specs/monk/mistweaver/calcs/SheilunsGift";
-import { TalentMap } from "@data/shared/engine";
+import type { TalentMap } from "@data/shared/engine";
 
 import { T } from "@util/T";
 import { pluralize } from "@util/stringManipulation";
@@ -99,9 +100,7 @@ const SheilunsGiftBreakdown: React.FC<{ title: React.ReactNode; description: Rea
         mode: "index" as const,
         intersect: false,
         callbacks: {
-          label: function(context: any) {
-            return T(`${context.dataset.label}: ${context.parsed.y.toFixed(1)}%`);
-          }
+          label: (context: any) => T(`${context.dataset.label}: ${context.parsed.y.toFixed(1)}%`)
         }
       },
       legend: {
@@ -132,9 +131,7 @@ const SheilunsGiftBreakdown: React.FC<{ title: React.ReactNode; description: Rea
           color: theme.custom.chart.gridColor,
         },
         ticks: {
-          callback: function(value: any) {
-            return value + '%';
-          }
+          callback: (value: any) => value + '%'
         }
       },
     },
@@ -184,9 +181,7 @@ const SheilunsGiftBreakdown: React.FC<{ title: React.ReactNode; description: Rea
         mode: "index" as const,
         intersect: false,
         callbacks: {
-          label: function(context: any) {
-            return T(`${context.dataset.label}: ${context.parsed.y.toFixed(0)}% Spellpower`);
-          },
+          label: (context: any) => T(`${context.dataset.label}: ${context.parsed.y.toFixed(0)}% Spellpower`),
         }
       },
       legend: {

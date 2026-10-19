@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { Box, Typography } from "@mui/material";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
 import { formatPercent } from "@util/stringManipulation";

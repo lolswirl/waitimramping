@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Button, Theme, useTheme } from "@mui/material";
+import type React from "react";
+import { Box, Button, type Theme, useTheme } from "@mui/material";
 import { T } from "@util/T";
 import { RAINBOW_COLORS } from "@components/Buttons/RainbowCard";
 import { FONT, HAIRLINE_SOFT, INK, TINT, tintedControl } from "@components/Theme/tokens";

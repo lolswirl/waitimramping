@@ -1,4 +1,4 @@
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 import RESTORATION_SHAMAN_SPELLS from "@data/specs/shaman/restoration/spells";
 import RESTORATION_SHAMAN_ROTATIONS from "@data/specs/shaman/restoration/rotations";
 import RESTORATION_SHAMAN_BUGS from "@data/specs/shaman/restoration/bugs";

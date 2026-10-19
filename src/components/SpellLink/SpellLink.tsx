@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import type spell from "@data/spells/spell";
 import { iconLocalUrl, iconFallbackUrl, wowheadSpellUrl } from "@util/wowhead";

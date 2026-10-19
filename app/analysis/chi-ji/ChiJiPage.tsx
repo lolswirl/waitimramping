@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useState, useEffect } from "react";
 import { Box, useTheme, Card, Divider, Grid } from "@mui/material";
 import { Refresh } from "@mui/icons-material";
 import PageHeader from "@components/PageHeader/PageHeader";
@@ -13,7 +14,7 @@ import TargetCountsCard from "@components/TargetCountCard/TargetCountsCard";
 import TalentsCard from "@components/TalentsCard/TalentsCard";
 import SwirlButton from "@components/Buttons/SwirlButton";
 import { CLASSES } from "@data/class";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import SHARED from "@data/specs/monk/talents";
@@ -21,7 +22,7 @@ import { CHIJI_ABILITIES } from "@data/specs/monk/mistweaver/spells";
 import { useRotationManager } from "@hooks/useRotationManager";
 import { pluralize } from "@util/stringManipulation";
 import { calculateRotationHPS } from './simulation';
-import { RotationResult, SimulationOptions } from './types';
+import type { RotationResult, SimulationOptions } from './types';
 
 const ChiJiPage: React.FC<{ title: React.ReactNode; description: React.ReactNode }> = ({ title, description }) => {
     const theme = useTheme();

@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, TypographyProps } from "@mui/material";
+import type React from "react";
+import { Typography, type TypographyProps } from "@mui/material";
 
 const Code: React.FC<TypographyProps> = ({ sx, ...rest }) => (
     <Typography

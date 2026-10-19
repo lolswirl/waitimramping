@@ -1,6 +1,7 @@
 ﻿"use client";
 
-import React, { useState, useMemo } from 'react';
+import type React from 'react';
+import { useState, useMemo } from 'react';
 import {
     Box,
     Card,
@@ -18,7 +19,8 @@ import ConfigPanel from '@components/ConfigPanel/ConfigPanel';
 import StatsCard, { Group, type StatsCardOptions } from '@components/StatsCard/StatsCard';
 import TalentsCard, { TalentOption } from '@components/TalentsCard/TalentsCard';
 import SPELLS from "@data/spells";
-import spell, { GCD } from '@data/spells/spell';
+import type spell from '@data/spells/spell';
+import { GCD } from '@data/spells/spell';
 import { T } from '@util/T';
 import { pluralize } from '@util/stringManipulation';
 import TALENTS from '@data/talents';

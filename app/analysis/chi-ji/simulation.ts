@@ -1,7 +1,7 @@
-import { AllyState, isTalentEnabled, RotationResult, SimulationOptions } from './types';
+import { type AllyState, isTalentEnabled, type RotationResult, type SimulationOptions } from './types';
 import { applyBuffEffects } from "@data/buffs";
 import { calculateCastTime } from "@data/spells/spell";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import { CLASSES } from '@data/class';
@@ -12,7 +12,7 @@ import {
     calculateGustOfMists,
     getWayOfTheCraneTransfer,
     getWayOfTheCraneArmorModifier,
-    Player,
+    type Player,
 } from '@data/specs/monk/mistweaver/calcs';
 
 export const createAllyState = (id: number): AllyState => ({
@@ -154,7 +154,7 @@ export const calculateRotationHPS = async (
     const buffedSpells = await applyBuffEffects(specData, normalizedRotation);
     let totalTime = 0;
     let totalHealing = 0;
-    let spellsCastInChiJi: spell[] = [];
+    const spellsCastInChiJi: spell[] = [];
     let totmStacks = 0;
 
     const mergedTalents: Player["talents"] = new Map([...options.specTalents, ...options.classTalents]);
@@ -242,14 +242,15 @@ export const calculateRotationHPS = async (
                 }
                 break;
 
-            case SPELLS.TIGER_PALM.id:
+            case SPELLS.TIGER_PALM.id: {
                 const tigerPalmDamage = calculateSpellDamage(spellObj, player);
                 const tigerPalmHits = wayOfTheCraneTigerPalmHits;
                 const tigerPalmATHealing = calculateAncientTeachingsHealing(tigerPalmDamage, player, true, spellObj) * tigerPalmHits;
                 breakdown.ancientTeachings = distributeAncientTeachings(allies, tigerPalmATHealing);
                 break;
+            }
             
-            case SPELLS.RISING_SUN_KICK.id:
+            case SPELLS.RISING_SUN_KICK.id: {
                 const rskDamage = calculateSpellDamage(spellObj, player);
                 const rskATHealing = calculateAncientTeachingsHealing(rskDamage, player, true, spellObj);
                 breakdown.ancientTeachings = distributeAncientTeachings(allies, rskATHealing);
@@ -271,6 +272,7 @@ export const calculateRotationHPS = async (
                 }
 
                 break;
+            }
 
             case TALENTS.RUSHING_WIND_KICK.id: {
                 const rwkDamage = calculateSpellDamage(spellObj, player);
@@ -304,7 +306,7 @@ export const calculateRotationHPS = async (
                 break;
             }
             
-            case SPELLS.BLACKOUT_KICK.id:
+            case SPELLS.BLACKOUT_KICK.id: {
                 const bokDamage = calculateSpellDamage(spellObj, player);
                 const bokHits = 1 + totmStacks;
                 let bokATHealing = calculateAncientTeachingsHealing(bokDamage, player, true, spellObj) * bokHits;
@@ -339,8 +341,9 @@ export const calculateRotationHPS = async (
                 }
 
                 break;
+            }
             
-            case SPELLS.SPINNING_CRANE_KICK.id:
+            case SPELLS.SPINNING_CRANE_KICK.id: {
                 const sckDamage = calculateSpellDamage(spellObj, player);
                 const sckTargetMultiplier = options.enemyCount <= 5 
                     ? options.enemyCount
@@ -372,8 +375,9 @@ export const calculateRotationHPS = async (
                 }
                 
                 break;
+            }
             
-            case SPELLS.ENVELOPING_MIST.id:
+            case SPELLS.ENVELOPING_MIST.id: {
                 const envTarget = applyEnvelopingMist(allies, options);
                 const envBaseHealing = calculateSpellHealing(spellObj, player);
                 breakdown.baseHealing = calculateHealingWithAmp(envBaseHealing, envTarget);
@@ -387,15 +391,17 @@ export const calculateRotationHPS = async (
                 }
                 
                 break;
+            }
             
-            case SPELLS.VIVIFY.id:
+            case SPELLS.VIVIFY.id: {
                 const vivifyTarget = getRandomAlly(allies);
                 const vivifyBaseHealing = calculateSpellHealing(spellObj, player);
                 breakdown.baseHealing = calculateHealingWithAmp(vivifyBaseHealing, vivifyTarget);
 
                 breakdown.gustOfMists = calculateHealingWithAmp(gustOfMistHealing, vivifyTarget);
                 break;
-            case SPELLS.RENEWING_MIST.id:
+            }
+            case SPELLS.RENEWING_MIST.id: {
                 const renewingMistTarget = getRandomAlly(allies);
                 applyRenewingMistToTarget(spellObj, renewingMistTarget, options);
                 const renewingMistBaseHealing = calculateRenewingMistHealing(spellObj);
@@ -403,10 +409,12 @@ export const calculateRotationHPS = async (
 
                 breakdown.gustOfMists = calculateHealingWithAmp(gustOfMistHealing, renewingMistTarget);
                 break;
-            default:
+            }
+            default: {
                 const defaultTarget = getRandomAlly(allies);
                 const defaultBaseHealing = calculateSpellHealing(spellObj, player);
                 breakdown.baseHealing = calculateHealingWithAmp(defaultBaseHealing, defaultTarget);
+            }
         }
 
         const totalHealing = breakdown.baseHealing + breakdown.chiJiGusts + breakdown.ancientTeachings + 

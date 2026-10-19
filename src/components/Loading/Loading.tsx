@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Box, Container, Skeleton, Stack } from '@mui/material';
 import PageHeader from '@components/PageHeader/PageHeader';
 

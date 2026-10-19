@@ -1,4 +1,4 @@
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 import TIER from "@data/items/tier";
 
 const items = {

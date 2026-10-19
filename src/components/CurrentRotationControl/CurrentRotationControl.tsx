@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import {
     Box,
     Card,
@@ -8,10 +8,9 @@ import {
 } from '@mui/material';
 import { Add, DeleteForever, DeleteTwoTone } from '@mui/icons-material';
 import SpellButton from '../SpellButtons/SpellButton';
-import { T } from '@util/T';
 import { toRomanNumeral } from '../../util/toRomanNumeral';
 import type Spell from "../../data/spells/spell";
-import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext, Droppable, Draggable, type DropResult } from '@hello-pangea/dnd';
 import SwirlButton from '../Buttons/SwirlButton';
 import { FONT } from "@components/Theme/tokens";
 

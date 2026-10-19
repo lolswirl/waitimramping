@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 

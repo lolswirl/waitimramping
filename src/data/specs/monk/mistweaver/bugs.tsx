@@ -2,12 +2,11 @@ import SPELLS from '@data/spells';
 import TALENTS from '@data/talents';
 import ITEMS from '@data/items';
 import CORE_PASSIVE from '@data/core-passives';
-import { Bug, SEVERITY, STATUS } from "@data/bugs";
+import { type Bug, SEVERITY, STATUS } from "@data/bugs";
 import { TAGS } from "@data/shared/tags";
 import { TIER } from '@data/items/tier';
 import SpellLink from '@components/SpellLink';
 import Code from '@components/Code/Code';
-import React from 'react';
 import ItemLink from '@components/ItemLink/ItemLink';
 
 const BUGS: Bug[] = [

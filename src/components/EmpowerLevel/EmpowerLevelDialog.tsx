@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import type React from "react";
 import {
     Dialog,
     DialogContent,
@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import EmpowerLevelButtons from "./EmpowerLevel";
 import SpellButton from "@components/SpellButtons/SpellButton";
-import { T } from "@util/T";
 import type spell from "@data/spells/spell";
 import { BLUR } from "@components/Theme/tokens";
 

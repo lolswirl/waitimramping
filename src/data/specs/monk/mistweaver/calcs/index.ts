@@ -1,4 +1,5 @@
-import spell, { CATEGORY } from "@data/spells/spell";
+import type spell from "@data/spells/spell";
+import { CATEGORY } from "@data/spells/spell";
 import TALENTS from "../talents";
 import SHARED from "@data/specs/monk/talents";
 import SPELLS from "@data/spells";
@@ -6,9 +7,9 @@ import { SCHOOLS } from "@data/shared/schools";
 import { registerSpecEngine } from "@data/shared/specEngines";
 import MISTWEAVER_KEY from "../key";
 import {
-    TalentMap,
-    Player,
-    TalentRule,
+    type TalentMap,
+    type Player,
+    type TalentRule,
     isTalentEnabled,
     calculateSpellDamageMultiplier,
     calculateSpellHealingMultiplier,

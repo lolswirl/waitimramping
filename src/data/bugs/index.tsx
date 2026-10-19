@@ -1,6 +1,6 @@
-import spell from "@data/spells/spell";
-import { Tags } from "@data/shared/tags";
-import React, { ReactNode } from "react";
+import type spell from "@data/spells/spell";
+import type { Tags } from "@data/shared/tags";
+import { type ReactNode } from "react";
 import { Check, Close } from "@mui/icons-material";
 
 export enum SEVERITY {

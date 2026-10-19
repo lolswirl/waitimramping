@@ -12,8 +12,8 @@ import StatsCard from '@components/StatsCard/StatsCard';
 import ConfigPanel from '@components/ConfigPanel/ConfigPanel';
 import { CONTENT_WIDTH, FONT, HAIRLINE, RADIUS } from '@components/Theme/tokens';
 
-import { CLASSES, specialization, getSpecializationByKey } from '@data/class';
-import spell from '@data/spells/spell';
+import { CLASSES, type specialization, getSpecializationByKey } from '@data/class';
+import type spell from '@data/spells/spell';
 import { getSpellById } from '@data/spells';
 
 import { useSpec } from '@context/SpecContext';
@@ -115,7 +115,7 @@ const WhenDoIRamp: React.FC<{ title: React.ReactNode; description: React.ReactNo
             {
                 ...spell,
                 uuid: uuidv4(),
-                ...(spell.hasOwnProperty("empowerLevel") ? { empowerLevel } : {}),
+                ...(Object.hasOwn(spell, "empowerLevel") ? { empowerLevel } : {}),
             },
         ]);
     };

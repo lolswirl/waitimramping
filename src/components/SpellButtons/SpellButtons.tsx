@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EmpowerLevelDialog from "@components/EmpowerLevel/EmpowerLevelDialog";
 import type SPELL from "@data/spells/spell";
 import { type SpellCategory, CATEGORY } from "@data/spells/spell";
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 import SpellButton from "@components/SpellButtons/SpellButton";
 import { GlassTooltip } from "@components/Glass/Tooltip/GlassTooltip";
 import { FONT, ICON } from "@components/Theme/tokens";
@@ -64,7 +64,7 @@ const SpellButtons: React.FC<SpellButtonsProps> = ({
     };
 
     const handleSpellClick = (spell: SPELL, empowerLevel: number = 0) => {
-        if (spell.hasOwnProperty("empowerLevel")) {
+        if (Object.hasOwn(spell, "empowerLevel")) {
             setSelectedSpell(spell);
             setDialogOpen(true);
         } else {

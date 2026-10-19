@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
+import type React from 'react';
 import { FieldCells, type FieldDef } from '@components/FieldCells/FieldCells';
-import { type Stats } from '@data/shared/stats';
-import { type specialization } from '@data/class';
+import type { Stats } from '@data/shared/stats';
+import type { specialization } from '@data/class';
 import { FONT } from "@components/Theme/tokens";
 
 export interface StatsCardOptions extends Stats {

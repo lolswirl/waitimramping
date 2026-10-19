@@ -1,11 +1,11 @@
-import React from "react";
+import type React from "react";
 import { Box, Typography } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import BuildIcon from "@mui/icons-material/Build";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SearchChip, SelectChip, SpecChip } from "@components/FilterChips/FilterChips";
 import { GlassTooltip } from "@components/Glass";
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 import { SEVERITY_COLORS, STATUS } from "@data/bugs";
 import { useIsLocalhost } from "@hooks/useIsLocalhost";
 import { CHIP_HEIGHT, FONT } from "@components/Theme/tokens";

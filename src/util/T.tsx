@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react";
+import React, { type ReactElement, type ReactNode } from "react";
 import { getCapsMode } from "@util/stringManipulation";
 
 const applyCase = (str: string): string => {

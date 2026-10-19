@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Box, Container, useTheme } from "@mui/material";
@@ -8,7 +9,7 @@ import PageHeader from "@components/PageHeader/PageHeader";
 import TalentsCard from "@components/TalentsCard/TalentsCard";
 import HeroTalentsCard from "@components/TalentsCard/HeroTalentsCard";
 
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import TIER from "@data/items/tier";
@@ -17,8 +18,8 @@ import {
   calculateAncientTeachingsHealing,
   calculateSpellDamage,
   calculateSpellHealing,
-  Player,
-  TalentMap,
+  type Player,
+  type TalentMap,
 } from "@data/specs/monk/mistweaver/calcs";
 
 import { T } from "@util/T";

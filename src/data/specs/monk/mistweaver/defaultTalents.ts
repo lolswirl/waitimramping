@@ -1,4 +1,4 @@
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 import TALENTS from './talents';
 import SHARED from '@data/specs/monk/talents';
 

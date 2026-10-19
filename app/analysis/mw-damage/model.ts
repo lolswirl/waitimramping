@@ -1,5 +1,5 @@
 import { GCD } from "@data/spells/spell";
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import TIER from "@data/items/tier";
@@ -9,8 +9,8 @@ import {
   calculateWayOfTheCraneHealing,
   calculateSpellDamage,
   calculateSpellHealing,
-  Player,
-  TalentMap,
+  type Player,
+  type TalentMap,
 } from "@data/specs/monk/mistweaver/calcs";
 
 type DamagePoint = { time: number; damage: number };

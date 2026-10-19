@@ -1,4 +1,4 @@
-import { specialization } from '@data/class';
+import type { specialization } from '@data/class';
 import PRESERVATION_EVOKER_SPELLS from '@data/specs/evoker/preservation/spells';
 import PRESERVATION_EVOKER_ROTATIONS from '@data/specs/evoker/preservation/rotations';
 

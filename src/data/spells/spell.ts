@@ -1,4 +1,4 @@
-import { SCHOOLS } from "@data/shared/schools";
+import type { SCHOOLS } from "@data/shared/schools";
 import type { HeroTree } from "@data/heroTalents";
 import type { Stats } from "@data/shared/stats";
 

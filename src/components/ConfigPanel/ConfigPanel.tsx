@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef } from "react";
+import type React from "react";
+import { useState, useRef } from "react";
 import { Box, Collapse, Typography, useTheme } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 import { CHIP_HEIGHT, FONT, TINT } from "@components/Theme/tokens";

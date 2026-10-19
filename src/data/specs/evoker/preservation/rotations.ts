@@ -1,5 +1,4 @@
-import spell from '@data/spells/spell';
-import SPELLS from '@data/spells';
+import type spell from '@data/spells/spell';
 
 const rotations = {
 } satisfies Record<string, spell[]>;

@@ -9,7 +9,7 @@ import { formatDate, getCapsMode } from "@util/stringManipulation";
 import RainbowCard from "@components/Buttons/RainbowCard";
 import { GlassTooltip } from "@components/Glass";
 
-import { analysisPages, AnalysisPage } from "../AnalysisPages";
+import { analysisPages, type AnalysisPage } from "../AnalysisPages";
 import { extractTextFromReactNode } from "@util/extractTextFromReactNode";
 import { FONT } from "@components/Theme/tokens";
 

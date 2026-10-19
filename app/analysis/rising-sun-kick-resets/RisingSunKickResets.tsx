@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState, useMemo, useCallback } from "react";
+import type React from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { 
@@ -8,14 +9,10 @@ import {
     TextField, 
     Typography, 
     useTheme, 
-    FormControl, 
-    InputLabel,
     Card,
     Stack,
     Divider,
     IconButton,
-    OutlinedInput,
-    Grid
 } from "@mui/material";
 import { DeleteTwoTone } from "@mui/icons-material";
 
@@ -32,7 +29,7 @@ import type spell from "@data/spells/spell";
 
 import { useRotationManager } from "@hooks/useRotationManager";
 import { T } from "@util/T";
-import { pluralize, hexToRgb, formatNumber, formatPercent } from "@util/stringManipulation";
+import { pluralize, hexToRgb, formatPercent } from "@util/stringManipulation";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -181,7 +178,7 @@ const createChartOptions = (theme: any, rotations: any[], calculateRotationStats
             mode: "index" as const,
             intersect: false,
             callbacks: {
-                label: function(context: any) {
+                label: (context: any) => {
                     const rotationIndex = context.dataIndex;
                     const rotation = rotations[rotationIndex];
                     const stats = calculateRotationStats(rotation.steps);
@@ -287,7 +284,7 @@ const RisingSunKickResets: React.FC<{ title: React.ReactNode; description: React
     
     const calculateRotationStats = useCallback((steps: spell[]) => {
         let totalHits = 0;
-        let totalGCDs = steps.length;
+        const totalGCDs = steps.length;
         
         if (steps.length === 0) {
             return DEFAULT_STATS;
@@ -306,10 +303,10 @@ const RisingSunKickResets: React.FC<{ title: React.ReactNode; description: React
             }
         });
         
-        const noResetChance = Math.pow(1 - totmResetChance, totalHits);
+        const noResetChance = (1 - totmResetChance) ** totalHits;
         const atLeastOneResetChance = 1 - noResetChance;
         const resetsPerGCD = atLeastOneResetChance / totalGCDs;
-        const attemptsChance = (1 - Math.pow(1 - atLeastOneResetChance, attempts));
+        const attemptsChance = (1 - (1 - atLeastOneResetChance) ** attempts);
         
         return {
             rotationResetChance: atLeastOneResetChance * 100,

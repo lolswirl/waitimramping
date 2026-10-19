@@ -1,6 +1,5 @@
-import React from 'react';
-import { Chip, SxProps, Theme } from '@mui/material';
-import { T } from '@util/T';
+import type React from 'react';
+import { Chip, type SxProps, type Theme } from '@mui/material';
 import { TINT, tintAlpha } from '@components/Theme/tokens';
 
 interface SwirlChipProps {

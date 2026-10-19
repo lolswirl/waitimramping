@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Box, Container, useTheme } from "@mui/material";
@@ -10,11 +11,11 @@ import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
 import { Group } from "@components/StatsCard/StatsCard";
 import { CONTENT_WIDTH } from "@components/Theme/tokens";
 
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import { CLASSES } from "@data/class";
-import { calculateAncientTeachingsData, calculateGustOfMists, calculateSpellHealing, Player } from "@data/specs/monk/mistweaver/calcs";
+import { calculateAncientTeachingsData, calculateGustOfMists, calculateSpellHealing, type Player } from "@data/specs/monk/mistweaver/calcs";
 import MISTWEAVER_DEFAULT_TALENTS from "@data/specs/monk/mistweaver/defaultTalents";
 
 import { T } from "@util/T";
@@ -103,7 +104,7 @@ const HarmonicSurge: React.FC<{ title: string; description: string }> = ({ title
     const jadeEmpowermentChain = jadeEmpowermentIncrease * jadeEmpowerment.effects.chainVal;
     const jeSpellpowerCalc = (value: number) => cjlSpCoeff * value;
     const jeValues = Array.from({ length: 5 }, (_, i) => i + 1);
-    let jeSpellpowers = jeValues.map(value => jeSpellpowerCalc(jadeEmpowermentIncrease + (value - 1) * jadeEmpowermentChain));
+    const jeSpellpowers = jeValues.map(value => jeSpellpowerCalc(jadeEmpowermentIncrease + (value - 1) * jadeEmpowermentChain));
 
     const harmonicSurge = TALENTS.HARMONIC_SURGE;
     const harmonicSurgeHealing = calculateSpellHealing(harmonicSurge, player);
@@ -252,11 +253,11 @@ const HarmonicSurge: React.FC<{ title: string; description: string }> = ({ title
                 mode: "index" as const,
                 intersect: false,
                 callbacks: {
-                    label: function(context: any) {
+                    label: (context: any) => {
                         const value = context.parsed.y.toFixed(2);
                         return ` ${context.dataset.label}: ${value}%`;
                     },
-                    afterBody: function(context: any) {
+                    afterBody: (context: any) => {
                         const dataIndex = context[0].dataIndex;
                         let total = 0;
                         context.forEach((item: any) => {

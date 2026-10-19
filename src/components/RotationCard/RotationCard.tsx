@@ -1,10 +1,9 @@
-import React from 'react';
+import type React from 'react';
 import { Card, Box, Typography, IconButton, Collapse, Divider } from '@mui/material';
 import { ExpandMore, ExpandLess, DeleteTwoTone } from '@mui/icons-material';
-import { RotationResult } from '../../../app/analysis/chi-ji/types';
+import type { RotationResult } from '../../../app/analysis/chi-ji/types';
 import SpellButton from "@components/SpellButtons/SpellButton";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
-import { T } from "@util/T";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import SPELLS from "@data/spells";

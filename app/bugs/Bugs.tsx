@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useState, useEffect } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { usePathname, useSearchParams } from "next/navigation";
 import { SearchOff } from "@mui/icons-material";
@@ -14,7 +15,7 @@ import BugUpdateWorkflow from "@components/BugUpdateWorkflow/BugUpdateWorkflow";
 
 import { getSpecializationByKey } from "@data/class";
 import { useSpec } from "@context/SpecContext";
-import { Bug, STATUS } from "@data/bugs";
+import { type Bug, STATUS } from "@data/bugs";
 
 import { useBugFilters } from "@hooks/useBugFilters";
 import { pluralize } from "@util/stringManipulation";

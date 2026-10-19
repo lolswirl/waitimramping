@@ -1,10 +1,9 @@
-import React from "react";
+import type React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
 import { GlassTooltip } from "@components/Glass";
-import { T } from "@util/T";
-import { Bug, STATUS, SEVERITY_COLORS, STATUS_COLORS, getStatusBadge } from "@data/bugs";
+import { type Bug, STATUS, SEVERITY_COLORS, STATUS_COLORS, getStatusBadge } from "@data/bugs";
 import { FONT } from "@components/Theme/tokens";
 
 interface BugChipsProps {

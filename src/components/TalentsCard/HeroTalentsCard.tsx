@@ -1,9 +1,8 @@
 import React from 'react';
-import spell from '@data/spells/spell';
-import { HeroTree } from '@data/heroTalents';
+import type spell from '@data/spells/spell';
+import type { HeroTree } from '@data/heroTalents';
 import { rowLabel, rowSep, Group } from '@components/StatsCard/StatsCard';
 import { TalentOption } from './TalentsCard';
-import { T } from '@util/T';
 
 interface HeroTalentsCardProps {
     options: Map<spell, boolean>;

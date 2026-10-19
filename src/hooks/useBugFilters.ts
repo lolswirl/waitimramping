@@ -1,8 +1,8 @@
 import { useMemo, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Bug, STATUS, SEVERITY, getBuildSortValue } from "@data/bugs";
-import { Tags } from "@data/shared/tags";
-import { specialization } from "@data/class";
+import { type Bug, STATUS, SEVERITY, getBuildSortValue } from "@data/bugs";
+import type { Tags } from "@data/shared/tags";
+import type { specialization } from "@data/class";
 import { extractTextFromReactNode } from "@util/extractTextFromReactNode";
 
 export const useBugFilters = (bugs: Bug[], selectedSpec: specialization) => {
@@ -36,7 +36,7 @@ export const useBugFilters = (bugs: Bug[], selectedSpec: specialization) => {
 
         if (updates.status && updates.status !== STATUS.OPEN) {
             params.set('status', updates.status);
-        } else if (updates.hasOwnProperty('status')) {
+        } else if (Object.hasOwn(updates, 'status')) {
             params.delete('status');
         }
 

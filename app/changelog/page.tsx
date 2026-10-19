@@ -4,7 +4,6 @@ import { RAINBOW_GRADIENT } from "@components/Buttons/RainbowCard";
 import { CONTENT_WIDTH } from "@components/Theme/tokens";
 import { CHANGELOG } from "@data/changelog";
 import { formatDate } from "@util/stringManipulation";
-import { T } from "@util/T";
 
 const title = "Changelog";
 const description = "A history of updates and changes to Wait, I'm Ramping!";

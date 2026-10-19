@@ -1,4 +1,5 @@
-import spell, { GCD } from '@data/spells/spell';
+import type spell from '@data/spells/spell';
+import { GCD } from '@data/spells/spell';
 import SPELLS from '@data/spells';
 import TALENTS from '@data/specs/monk/mistweaver/talents';
 

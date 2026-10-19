@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import type React from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Box, Container, Divider, useTheme, Card, Typography, Tab, Tabs, Skeleton } from "@mui/material";
@@ -15,7 +16,7 @@ import { FieldCells, type FieldDef } from "@components/FieldCells/FieldCells";
 import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
 import { CONTENT_WIDTH, ICON } from "@components/Theme/tokens";
 
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import SHARED from "@data/specs/monk/talents";
@@ -25,8 +26,8 @@ import { T } from "@util/T";
 import { formatNumber } from "@util/stringManipulation";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
 
-import { type TalentMap } from "@data/shared/engine";
-import { type ModelResult } from "./model";
+import type { TalentMap } from "@data/shared/engine";
+import type { ModelResult } from "./model";
 import { buildRotationConfigs, getBackgroundColor, getBorderColor, getCardBg } from "./types";
 import BreakdownCard from "./BreakdownCard";
 import HeatmapCard from "./HeatmapCard";

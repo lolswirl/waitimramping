@@ -1,6 +1,6 @@
 "use client";
-import React from 'react';
-import { Switch, SxProps, Theme } from '@mui/material';
+import type React from 'react';
+import { Switch, type SxProps, type Theme } from '@mui/material';
 
 interface SwirlToggleProps {
     checked: boolean;

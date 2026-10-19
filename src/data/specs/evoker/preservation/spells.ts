@@ -1,4 +1,5 @@
-import spell, { CATEGORY } from '@data/spells/spell';
+import type spell from '@data/spells/spell';
+import { CATEGORY } from '@data/spells/spell';
 
 const spells = {
   TEMPORAL_ANOMALY: {

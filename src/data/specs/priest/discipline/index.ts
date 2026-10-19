@@ -1,4 +1,4 @@
-import { specialization } from '@data/class';
+import type { specialization } from '@data/class';
 import DISCIPLINE_PRIEST_SPELLS from '@data/specs/priest/discipline/spells';
 import DISCIPLINE_PRIEST_ROTATIONS from '@data/specs/priest/discipline/rotations';
 

@@ -1,15 +1,15 @@
 ﻿"use client";
-import React from "react";
+import type React from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Box, Container, useTheme } from "@mui/material";
 
 import PageHeader from "@components/PageHeader/PageHeader";
 
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
-import { calculateSpellDamage, calculateWayOfTheCraneHealing, Player } from "@data/specs/monk/mistweaver/calcs";
+import { calculateSpellDamage, calculateWayOfTheCraneHealing, type Player } from "@data/specs/monk/mistweaver/calcs";
 import { CLASSES } from "@data/class";
 import { calculateSheilunsGiftBreakdown } from "@data/specs/monk/mistweaver/calcs/SheilunsGift";
 

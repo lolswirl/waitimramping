@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, Stack, Typography, Divider, Card } from "@mui/material";
 import { ArrowUpward, ArrowDownward, DeleteTwoTone, DeleteForever } from "@mui/icons-material";
@@ -8,11 +9,11 @@ import SwirlButton from "@components/Buttons/SwirlButton";
 import { SwirlIconButton } from "@components/Buttons/SwirlIconButton";
 import SpellButton from "@components/SpellButtons/SpellButton";
 
-import spell, { calculateEffectiveCastTime } from "@data/spells/spell";
+import type spell from "@data/spells/spell";
+import { calculateEffectiveCastTime } from "@data/spells/spell";
 import { applyBuffEffects } from "@data/buffs";
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 
-import { T } from "@util/T";
 import { toRomanNumeral } from "@util/toRomanNumeral";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
 import { ICON } from "@components/Theme/tokens";

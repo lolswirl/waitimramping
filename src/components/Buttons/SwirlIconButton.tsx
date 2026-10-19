@@ -1,4 +1,4 @@
-import { IconButton, IconButtonProps, SxProps, Theme, useTheme } from "@mui/material";
+import { IconButton, type IconButtonProps, type SxProps, type Theme, useTheme } from "@mui/material";
 import { HAIRLINE_SOFT, TINT, tintedControl } from "@components/Theme/tokens";
 
 interface SwirlIconButtonProps extends Omit<IconButtonProps, 'sx'> {

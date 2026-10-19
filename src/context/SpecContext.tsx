@@ -1,6 +1,7 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { CLASSES, specialization, getSpecializationByKey } from "@data/class";
+import type React from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { CLASSES, type specialization, getSpecializationByKey } from "@data/class";
 
 interface SpecContextType {
   spec: specialization;

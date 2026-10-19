@@ -1,8 +1,7 @@
-import React from "react";
+import type React from "react";
 import { Box } from "@mui/material";
-import { T } from "@util/T";
 import { iconLocalUrl, iconFallbackUrl } from "@util/wowhead";
-import { specialization } from "@data/class";
+import type { specialization } from "@data/class";
 import { ICON, RADIUS } from "@components/Theme/tokens";
 import "./SpecializationSelect.css";
 

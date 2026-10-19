@@ -1,5 +1,5 @@
 import '@data/specs/monk/mistweaver/calcs';
-import { specialization } from '@data/class';
+import type { specialization } from '@data/class';
 import MISTWEAVER_KEY from '@data/specs/monk/mistweaver/key';
 import MISTWEAVER_MONK_SPELLS from '@data/specs/monk/mistweaver/spells';
 import MISTWEAVER_MONK_TALENTS from '@data/specs/monk/mistweaver/talents';
@@ -11,7 +11,7 @@ import MISTWEAVER_DEFAULT_TALENTS from '@data/specs/monk/mistweaver/defaultTalen
 import corePassive from '@data/specs/monk/mistweaver/core-passive/core-passive';
 import corePassive2 from '@data/specs/monk/mistweaver/core-passive/core-passive-2';
 import TIER from '@data/items/tier';
-import spell from '@data/spells/spell';
+import type spell from '@data/spells/spell';
 
 const MISTWEAVER_TIER_SET = new Map<spell, boolean>([
   [TIER.T36_MISTWEAVER_2SET, true],

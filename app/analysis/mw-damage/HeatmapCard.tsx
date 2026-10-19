@@ -1,11 +1,12 @@
 "use client";
-import React, { useMemo } from "react";
+import type React from "react";
+import { useMemo } from "react";
 import { Box, Card, Typography, Tab, Tabs, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import SpellButton from "@components/SpellButtons/SpellButton";
 import SwirlChip from "@components/SwirlChip/SwirlChip";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
-import { type Player } from "@data/specs/monk/mistweaver/calcs";
-import { type RotationConfig } from "./types";
+import type { Player } from "@data/specs/monk/mistweaver/calcs";
+import type { RotationConfig } from "./types";
 import { CONTENT_WIDTH, FONT, ICON } from "@components/Theme/tokens";
 
 type Props = {

@@ -1,5 +1,6 @@
 ﻿"use client";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -17,11 +18,12 @@ import TalentsCard from "@components/TalentsCard/TalentsCard";
 import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
 import { Group } from "@components/StatsCard/StatsCard";
 import { CONTENT_WIDTH } from "@components/Theme/tokens";
-import spell, { calcSpellpower } from "@data/spells/spell";
+import type spell from "@data/spells/spell";
+import { calcSpellpower } from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
 import { CLASSES } from "@data/class";
-import { calculateSpellHealing, calculateAncientTeachingsData, Player } from "@data/specs/monk/mistweaver/calcs";
+import { calculateSpellHealing, calculateAncientTeachingsData, type Player } from "@data/specs/monk/mistweaver/calcs";
 import { T } from "@util/T";
 import { pluralize } from "@util/stringManipulation";
 
@@ -228,7 +230,7 @@ const Conduit: React.FC<{ title: React.ReactNode; description: React.ReactNode }
                 mode: "index" as const,
                 intersect: false,
                 callbacks: {
-                    afterBody: function (context: any) {
+                    afterBody: (context: any) => {
                         // fill in total sp% for conduit + unity within
                         const index = context[0].dataIndex;
                         const ability = sortedAbilities[index];
@@ -244,7 +246,7 @@ const Conduit: React.FC<{ title: React.ReactNode; description: React.ReactNode }
 
                         return [];
                     },
-                    label: function (context: any) {
+                    label: (context: any) => {
                         // dont show unity within tooltip value if its not conduit!!!
                         const ability = sortedAbilities[context.dataIndex];
 

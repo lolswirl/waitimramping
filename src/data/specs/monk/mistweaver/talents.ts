@@ -1,5 +1,6 @@
 import { SCHOOLS } from '@data/shared/schools';
-import spell, { CATEGORY } from '@data/spells/spell';
+import type spell from '@data/spells/spell';
+import { CATEGORY } from '@data/spells/spell';
 import { HERO_TREES } from '@data/heroTalents';
 const MOH = HERO_TREES.MASTER_OF_HARMONY;
 const COTC = HERO_TREES.CONDUIT_OF_THE_CELESTIALS;

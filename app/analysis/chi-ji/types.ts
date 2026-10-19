@@ -1,5 +1,5 @@
-import spell from "@data/spells/spell";
-import { TalentMap } from "@data/shared/engine";
+import type spell from "@data/spells/spell";
+import type { TalentMap } from "@data/shared/engine";
 
 export interface AllyState {
     id: number;

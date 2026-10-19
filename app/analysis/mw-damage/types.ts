@@ -1,7 +1,7 @@
-import spell from "@data/spells/spell";
+import type spell from "@data/spells/spell";
 import SPELLS from "@data/spells";
 import TALENTS from "@data/specs/monk/mistweaver/talents";
-import { type Player } from "@data/specs/monk/mistweaver/calcs";
+import type { Player } from "@data/specs/monk/mistweaver/calcs";
 import { RAINBOW_COLORS } from "@components/Buttons/RainbowCard";
 import {
   modelMeleeRotation,

@@ -1,8 +1,8 @@
-import React from "react";
+import type React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import SpellButton from "@components/SpellButtons/SpellButton";
-import SwirlTable, { SwirlColumn } from "@components/SwirlTable/SwirlTable";
-import { Bug, SEVERITY_COLORS, STATUS, STATUS_COLORS, getLatestBuild, getBuildSortValue } from "@data/bugs";
+import SwirlTable, { type SwirlColumn } from "@components/SwirlTable/SwirlTable";
+import { type Bug, SEVERITY_COLORS, STATUS, STATUS_COLORS, getLatestBuild, getBuildSortValue } from "@data/bugs";
 import { extractTextFromReactNode } from "@util/extractTextFromReactNode";
 import { AttachFile } from "@mui/icons-material";
 import { FONT, ICON } from "@components/Theme/tokens";

@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { Box, TextField, InputAdornment, Typography } from '@mui/material';
 import { Add, Remove } from '@mui/icons-material';
 import { GlassTooltip } from '@components/Glass';

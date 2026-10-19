@@ -1,4 +1,5 @@
-import spell, { CATEGORY } from '@data/spells/spell';
+import type spell from '@data/spells/spell';
+import { CATEGORY } from '@data/spells/spell';
 import { SCHOOLS } from '@data/shared/schools';
 import { HERO_TREES } from '@data/heroTalents';
 const COTC = HERO_TREES.CONDUIT_OF_THE_CELESTIALS;

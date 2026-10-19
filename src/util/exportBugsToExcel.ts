@@ -1,4 +1,4 @@
-import { Bug } from "@data/bugs";
+import type { Bug } from "@data/bugs";
 import { bugExportRows } from "./bugExportRows";
 import * as XLSX from "xlsx";
 

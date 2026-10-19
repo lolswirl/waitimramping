@@ -1,4 +1,4 @@
-import { Bug, SEVERITY_ORDER, STATUS } from "@data/bugs";
+import { type Bug, SEVERITY_ORDER, STATUS } from "@data/bugs";
 import { extractTextFromReactNode } from "./extractTextFromReactNode";
 
 const HEADERS = ["Type", "Ability/Talent", "Misc", "Description", "Build", "Notes + Logs", "Priority"];

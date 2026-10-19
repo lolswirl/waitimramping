@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import type React from 'react';
 import { FieldCells, type FieldDef } from '@components/FieldCells/FieldCells';
 
 interface TargetCountsCardProps {

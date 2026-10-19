@@ -1,5 +1,5 @@
-import spell from '@data/spells/spell';
-import { specialization } from '@data/class';
+import type spell from '@data/spells/spell';
+import type { specialization } from '@data/class';
 
 export const applyBuffEffects = async (spec: specialization, spellList: spell[]): Promise<spell[]> => {
   if (!spec?.buffs) return spellList;

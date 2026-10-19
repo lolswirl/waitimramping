@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material";
 
 import { iconLocalUrl, iconFallbackUrl, wowheadSpellUrl } from "@util/wowhead";
 import { ICON, RADIUS } from "@components/Theme/tokens";
-import { T } from "@util/T";
 
 interface IconButtonBaseProps {
     icon: string;
