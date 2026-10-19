@@ -12,6 +12,7 @@ const Tiling = ({ patternSrc }: { patternSrc: string }) => {
     setMounted(true);
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname redraws the tiling on navigation
   useEffect(() => {
     if (!mounted) return;
     

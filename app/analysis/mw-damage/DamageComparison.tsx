@@ -101,12 +101,13 @@ const DamageComparison: React.FC<{ title: React.ReactNode; description: React.Re
   const useRwk = talents.get(TALENTS.RUSHING_WIND_KICK) === true;
 
   const useJe = talents.get(TALENTS.JADE_EMPOWERMENT) === true;
+  // biome-ignore lint/correctness/useExhaustiveDependencies: buildRotationConfigs only reads rushing wind kick and jade empowerment
   const ROTATION_CONFIGS = useMemo(
     () => buildRotationConfigs(useRwk, talents),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [useRwk, useJe]
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: rerollKey forces a fresh random roll
   useEffect(() => {
     setDamageData(
       Object.fromEntries(
@@ -126,12 +127,12 @@ const DamageComparison: React.FC<{ title: React.ReactNode; description: React.Re
     return Array.from({ length: TARGET_WINDOW }, (_, i) => end - TARGET_WINDOW + 1 + i);
   }, [targetCount]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: rerollKey forces a fresh random roll
   const targetSweep = useMemo(
     () => targetRange.map(targets => ROTATION_CONFIGS.map(config => {
       const result = config.modelFn(SWEEP_TIME, targets, showAsHealing, player);
       return result.points.length > 0 ? result.points[result.points.length - 1].damage / SWEEP_TIME : 0;
     })),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [targetRange, ROTATION_CONFIGS, showAsHealing, player, rerollKey]
   );
 

@@ -18,6 +18,7 @@ const AnalysisCard: React.FC<{ tool: AnalysisPage; isOutdated: boolean }> = ({ t
     const descRef = React.useRef<HTMLDivElement>(null);
     const [descHeight, setDescHeight] = React.useState(48);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: re-measure whenever the description text changes
     React.useLayoutEffect(() => {
         if (descRef.current) {
             const prev = descRef.current.style.transform;

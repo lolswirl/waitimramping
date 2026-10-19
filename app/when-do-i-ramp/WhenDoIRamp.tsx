@@ -79,7 +79,7 @@ const WhenDoIRamp: React.FC<{ title: React.ReactNode; description: React.ReactNo
         setSpec(linkedSpec);
         setLockedSpecName(linkedSpec.name);
         setSpellList(hydratedSpells);
-    }, []);
+    }, [setSpec]);
 
     useEffect(() => {
         if (skipUrlSync.current) {
@@ -94,7 +94,7 @@ const WhenDoIRamp: React.FC<{ title: React.ReactNode; description: React.ReactNo
         }
         const next = params.toString() ? `?${params.toString()}` : window.location.pathname;
         window.history.replaceState(null, '', next);
-    }, [spellList]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [spellList, spec.key]);
 
     const handleSpecChange = (newSpec: specialization) => {
         if (spellList.length === 0) {

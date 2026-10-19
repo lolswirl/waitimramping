@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useCallback, useState, useMemo, useEffect } from "react";
 import {
   Box,
   Container,
@@ -192,15 +192,15 @@ const SpellReference: React.FC<{ title: React.ReactNode; description: React.Reac
     [specTalents, heroTalents, classTalents, tierSet]
   );
 
-  const resetConfig = (target: specialization) => {
+  const resetConfig = useCallback((target: specialization) => {
     setStats({ ...target.stats });
     setSpecTalents(target.defaultTalents?.spec ?? new Map());
     setHeroTalents(target.defaultTalents?.hero ?? new Map());
     setClassTalents(target.defaultTalents?.class ?? new Map());
     setTierSet(target.tierSet ?? new Map());
-  };
+  }, []);
 
-  useEffect(() => resetConfig(spec), [spec]);
+  useEffect(() => resetConfig(spec), [spec, resetConfig]);
 
   const allSpells = useMemo(() => [
     ...Object.values(spec.spells),
@@ -214,7 +214,7 @@ const SpellReference: React.FC<{ title: React.ReactNode; description: React.Reac
       if (enabled && talent.heroTalent) activeTrees.add(talent.heroTalent);
     }
     return allSpells.flatMap(s => expandRows(s, player, spec.key, activeTrees));
-  }, [spec, allSpells, stats.intellect, stats.haste, stats.crit, stats.versatility, stats.mastery, stats.totalHp, talents, heroTalents]);
+  }, [spec, allSpells, stats, talents, heroTalents]);
 
   const visibleRows = useMemo(() => {
     const query = search.trim().toLowerCase();

@@ -58,6 +58,7 @@ export const useBugFilters = (bugs: Bug[], selectedSpec: specialization) => {
         updateURL({ search });
     };
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: sync from the url only when it changes, since local state would undo typing before the url catches up
     useEffect(() => {
         const urlSearch = searchParams.get('search') || "";
         const urlSeverity = searchParams.get('severity') || "All";

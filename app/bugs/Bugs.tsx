@@ -66,7 +66,7 @@ const BugsPage: React.FC<{ title: React.ReactNode; description: React.ReactNode 
                 setSelectedSpec(urlSpec);
             }
         }
-    }, [searchParams, selectedSpec]);
+    }, [searchParams, selectedSpec, setSelectedSpec]);
 
     const setBugParam = (slug: string | null) => {
         const params = new URLSearchParams(searchParams.toString());

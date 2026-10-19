@@ -67,7 +67,7 @@ const Timeline: React.FC<{ title: React.ReactNode; description: React.ReactNode 
         skipUrlSync.current = true;
         setSpec(linkedSpec);
         setRotations(hydratedRotations);
-    }, []);
+    }, [setSpec, setRotations]);
 
     useEffect(() => {
         if (skipUrlSync.current) {
@@ -82,7 +82,7 @@ const Timeline: React.FC<{ title: React.ReactNode; description: React.ReactNode 
         }
         const next = params.toString() ? `?${params.toString()}` : window.location.pathname;
         window.history.replaceState(null, '', next);
-    }, [rotations]);
+    }, [rotations, spec.key]);
 
     const handleSpecChange = (newSpec: specialization) => {
         if (spellList.length > 0) {

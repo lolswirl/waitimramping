@@ -19,6 +19,7 @@ type Props = {
 };
 
 const HeatmapCard: React.FC<Props> = ({ rotationConfigs, player, rerollKey, showAsHealing, activeTab, onTabChange }) => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: rerollKey forces a fresh random roll
   const heatmapRows = useMemo(() => {
     const time = 500;
     return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(targets => ({
@@ -32,7 +33,6 @@ const HeatmapCard: React.FC<Props> = ({ rotationConfigs, player, rerollKey, show
         return result.points.length > 0 ? result.points[result.points.length - 1].damage / time : 0;
       }),
     }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rerollKey, player, rotationConfigs]);
 
   const renderHeatmapTable = (type: 'DPS' | 'HPS', asHealing: boolean) => {

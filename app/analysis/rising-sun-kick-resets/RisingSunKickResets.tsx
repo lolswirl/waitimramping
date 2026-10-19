@@ -315,7 +315,7 @@ const RisingSunKickResets: React.FC<{ title: React.ReactNode; description: React
             totalHits,
             totalGCDs
         };
-    }, [wayOfTheCrane, targets, attempts, totm.maxStacks, totmResetChance]);
+    }, [wayOfTheCrane, targets, attempts, totmResetChance]);
     
     const chartData = useMemo(() => 
         createChartData(rotations, calculateRotationStats), 

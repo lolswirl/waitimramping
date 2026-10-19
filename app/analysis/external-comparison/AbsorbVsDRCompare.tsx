@@ -48,7 +48,7 @@ const AbsorbVsDRCompare: React.FC<{ title: React.ReactNode; description: React.R
       x: intersectX,
       y: intersectY,
     });
-  }, [absorbValue, damageReduction, damageValues, absorbDamageIntake, reductionDamageIntake]);
+  }, [damageValues, absorbDamageIntake, reductionDamageIntake]);
 
 
   const chartData = useMemo(() => ({

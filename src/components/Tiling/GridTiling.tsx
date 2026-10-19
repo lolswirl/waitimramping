@@ -15,6 +15,7 @@ const GridTiling = ({
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const pathname = usePathname();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname redraws the tiling on navigation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;

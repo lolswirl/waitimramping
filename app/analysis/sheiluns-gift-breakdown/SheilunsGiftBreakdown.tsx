@@ -57,7 +57,7 @@ const SheilunsGiftBreakdown: React.FC<{ title: React.ReactNode; description: Rea
       talents: selectedTalents,
       corePassives: mistweaver.corePassives,
     });
-  }, [options, selectedTalents]);
+  }, [options, selectedTalents, mistweaver.corePassives]);
 
   const talentKey = Array.from(selectedTalents.entries())
     .map(([talent, enabled]) => `${talent.id}-${enabled}`)
