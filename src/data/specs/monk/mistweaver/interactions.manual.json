@@ -1,7 +1,17 @@
 {
     "aliases": {
-        "Blackout Kick (Cleave)": "Blackout Kick"
+        "Blackout Kick (Cleave)": "Blackout Kick",
+        "Manifestation": "Chi Wave"
     },
+    "exclude": [
+        "Chi Burst"
+    ],
+    "removeLinks": [
+        [
+            "Temple Training",
+            "Spinning Crane Kick"
+        ]
+    ],
     "extraNodes": [
         {
             "id": -1,
@@ -20,6 +30,16 @@
                 406139,
                 406220
             ]
+        },
+        {
+            "id": -5,
+            "name": "Haste",
+            "iconUrl": "/icons/attribute_haste.svg"
+        },
+        {
+            "id": -6,
+            "name": "Versatility",
+            "iconUrl": "/icons/attribute_versatility.svg"
         }
     ],
     "links": [
@@ -222,10 +242,6 @@
         [
             "Dance of Chi-Ji",
             "Spinning Crane Kick"
-        ],
-        [
-            "Dance of Chi-Ji",
-            "Way of the Crane"
         ],
         [
             "Lifecycles",
@@ -554,6 +570,330 @@
         [
             "Serene Surge",
             "Sheilun's Gift"
+        ],
+        [
+            "Xuen's Guidance",
+            "Teachings of the Monastery"
+        ],
+        [
+            "Xuen's Guidance",
+            "Tiger Palm"
+        ],
+        [
+            "Celestial Conduit",
+            "Jade Sanctuary"
+        ],
+        [
+            "Niuzao's Protection",
+            "Fortifying Brew"
+        ],
+        [
+            "Tiger Palm",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Vivify",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Sheilun's Gift",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Courage of the White Tiger",
+            "Strength of the Black Ox"
+        ],
+        [
+            "Strength of the Black Ox",
+            "Enveloping Mist"
+        ],
+        [
+            "Stampede of the Ancients",
+            "Strength of the Black Ox"
+        ],
+        [
+            "Restore Balance",
+            "Yu'lon"
+        ],
+        [
+            "Restore Balance",
+            "Chi-Ji"
+        ],
+        [
+            "Path of the Falling Star",
+            "Celestial Conduit"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Heart of the Jade Serpent"
+        ],
+        [
+            "Heart of the Jade Serpent",
+            "Renewing Mist"
+        ],
+        [
+            "Heart of the Jade Serpent",
+            "Rising Sun Kick"
+        ],
+        [
+            "Heart of the Jade Serpent",
+            "Life Cocoon"
+        ],
+        [
+            "Heart of the Jade Serpent",
+            "Thunder Focus Tea"
+        ],
+        [
+            "Vivify",
+            "Yu'lon's Avatar"
+        ],
+        [
+            "Sheilun's Gift",
+            "Yu'lon's Avatar"
+        ],
+        [
+            "Yu'lon's Avatar",
+            "Heart of the Jade Serpent"
+        ],
+        [
+            "Heart of the Jade Serpent",
+            "Flowing Wisdom"
+        ],
+        [
+            "Celestial Conduit",
+            "Unity Within"
+        ],
+        [
+            "Unity Within",
+            "Strength of the Black Ox"
+        ],
+        [
+            "Unity Within",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Unity Within",
+            "Heart of the Jade Serpent"
+        ],
+        [
+            "Unity Within",
+            "Flight of the Red Crane"
+        ],
+        [
+            "Overwhelming Force",
+            "Rising Sun Kick"
+        ],
+        [
+            "Overwhelming Force",
+            "Blackout Kick"
+        ],
+        [
+            "Overwhelming Force",
+            "Tiger Palm"
+        ],
+        [
+            "Endless Draught",
+            "Thunder Focus Tea"
+        ],
+        [
+            "Chi Wave",
+            "Path of Resurgence"
+        ],
+        [
+            "Path of Resurgence",
+            "Aspect of Harmony (Store)"
+        ],
+        [
+            "Rising Sun Kick",
+            "Chi Wave"
+        ],
+        [
+            "Rising Sun Kick",
+            "Way of a Thousand Strikes"
+        ],
+        [
+            "Blackout Kick",
+            "Way of a Thousand Strikes"
+        ],
+        [
+            "Tiger Palm",
+            "Way of a Thousand Strikes"
+        ],
+        [
+            "Way of a Thousand Strikes",
+            "Aspect of Harmony (Store)"
+        ],
+        [
+            "Mantra of Tenacity",
+            "Fortifying Brew"
+        ],
+        [
+            "Enveloping Mist",
+            "Clarity of Purpose"
+        ],
+        [
+            "Clarity of Purpose",
+            "Aspect of Harmony (Store)"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Harmonic Surge"
+        ],
+        [
+            "Harmonic Surge",
+            "Tiger Palm"
+        ],
+        [
+            "Harmonic Surge",
+            "Vivify"
+        ],
+        [
+            "Rising Sun Kick",
+            "Potential Energy"
+        ],
+        [
+            "Potential Energy",
+            "Harmonic Surge"
+        ],
+        [
+            "Meditative Focus",
+            "Ancient Teachings"
+        ],
+        [
+            "Vivify",
+            "Coalescence"
+        ],
+        [
+            "Sheilun's Gift",
+            "Coalescence"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Aspect of Harmony (Withdraw)"
+        ],
+        [
+            "Yu'lon",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Chi-Ji",
+            "Courage of the White Tiger"
+        ],
+        [
+            "Secret Infusion",
+            "Critical Strike"
+        ],
+        [
+            "Secret Infusion",
+            "Haste"
+        ],
+        [
+            "Secret Infusion",
+            "Versatility"
+        ],
+        [
+            "Inner Compass",
+            "Critical Strike"
+        ],
+        [
+            "Inner Compass",
+            "Haste"
+        ],
+        [
+            "Inner Compass",
+            "Versatility"
+        ],
+        [
+            "Inner Compass",
+            "Mastery"
+        ],
+        [
+            "Flowing Wisdom",
+            "Haste"
+        ],
+        [
+            "Mantra of Purity",
+            "Vivify"
+        ],
+        [
+            "Mantra of Purity",
+            "Sheilun's Gift"
+        ],
+        [
+            "Vital Clarity",
+            "Vivify"
+        ],
+        [
+            "Vital Clarity",
+            "Sheilun's Gift"
+        ],
+        [
+            "Vivify",
+            "Mist Caller"
+        ],
+        [
+            "Sheilun's Gift",
+            "Mist Caller"
+        ],
+        [
+            "Mist Caller",
+            "Gust of Mists"
+        ],
+        [
+            "Critical Strike",
+            "Vital Clarity"
+        ],
+        [
+            "Fortifying Brew",
+            "Diffuse Magic"
+        ],
+        [
+            "Yu'lon",
+            "Tear of Morning"
+        ],
+        [
+            "Chi-Ji",
+            "Tear of Morning"
+        ],
+        [
+            "Renewing Mist",
+            "Tear of Morning"
+        ],
+        [
+            "Sheilun's Gift",
+            "Zen Pulse"
+        ],
+        [
+            "Aspect of Harmony (Withdraw)",
+            "Purified Spirit"
+        ],
+        [
+            "Aspect of Harmony (Withdraw)",
+            "Harmonic Gambit"
+        ],
+        [
+            "Harmonic Gambit",
+            "Rising Sun Kick"
+        ],
+        [
+            "Harmonic Gambit",
+            "Blackout Kick"
+        ],
+        [
+            "Harmonic Gambit",
+            "Tiger Palm"
+        ],
+        [
+            "Coalescence",
+            "Aspect of Harmony"
+        ],
+        [
+            "Aspect of Harmony",
+            "Aspect of Harmony (Store)"
+        ],
+        [
+            "Aspect of Harmony",
+            "Aspect of Harmony (Withdraw)"
         ]
     ]
 }
