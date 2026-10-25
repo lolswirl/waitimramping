@@ -1,0 +1,1207 @@
+{
+  "source": "SimulationCraft 1210-01 for World of Warcraft 12.1.5.70448 Live (hotfix 2026-10-20/70448)",
+  "nodes": [
+    1271431,
+    388023,
+    100784,
+    399226,
+    388218,
+    343655,
+    1260681,
+    325197,
+    343819,
+    117952,
+    446260,
+    438439,
+    388701,
+    446345,
+    388681,
+    1268807,
+    471761,
+    422031,
+    124682,
+    388809,
+    197895,
+    388212,
+    117907,
+    122280,
+    274586,
+    388031,
+    467316,
+    1242910,
+    115313,
+    1248812,
+    467293,
+    404408,
+    116849,
+    197915,
+    458431,
+    115869,
+    197900,
+    1280297,
+    388548,
+    1268817,
+    388682,
+    1277302,
+    388511,
+    388593,
+    440008,
+    173841,
+    388847,
+    467270,
+    119611,
+    388020,
+    388615,
+    115310,
+    274909,
+    185099,
+    467307,
+    388491,
+    1266734,
+    399491,
+    343737,
+    115175,
+    1260617,
+    198533,
+    107270,
+    1260511,
+    116645,
+    387991,
+    116680,
+    100780,
+    1270621,
+    388551,
+    400053,
+    1299572,
+    388812,
+    116670,
+    388779,
+    1243155,
+    322118,
+    388038,
+    124081
+  ],
+  "extraNodes": [
+    {
+      "id": -1,
+      "name": "Critical Strike",
+      "iconUrl": "/icons/attribute_criticalstrike.svg"
+    },
+    {
+      "id": -3,
+      "name": "Chi Cocoon (Yu'lon / Chi-Ji)",
+      "spellIds": [
+        406139,
+        406220
+      ]
+    },
+    {
+      "id": -2,
+      "name": "Mastery",
+      "iconUrl": "/icons/attribute_mastery.svg"
+    }
+  ],
+  "links": [
+    {
+      "from": 116680,
+      "to": 119611,
+      "kinds": [
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 124682,
+      "kinds": [
+        "Spell Cast Time"
+      ]
+    },
+    {
+      "from": 117907,
+      "to": 343819,
+      "kinds": [
+        "Spell Coefficient"
+      ]
+    },
+    {
+      "from": 197895,
+      "to": 116680,
+      "kinds": [
+        "Spell Doses",
+        "Spell Max Stacks"
+      ]
+    },
+    {
+      "from": 197900,
+      "to": 124682,
+      "kinds": [
+        "Spell Duration",
+        "Spell Effect 2"
+      ]
+    },
+    {
+      "from": 387991,
+      "to": 399491,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 388212,
+      "to": 322118,
+      "kinds": [
+        "Spell Cooldown",
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 388212,
+      "to": 325197,
+      "kinds": [
+        "Spell Cooldown",
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 388551,
+      "to": 115310,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 388551,
+      "to": 388615,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 388681,
+      "to": 115175,
+      "kinds": [
+        "Spell Effect 2",
+        "Spell Effect 4"
+      ]
+    },
+    {
+      "from": 388779,
+      "to": 100784,
+      "kinds": [
+        "Spell Chain Targets"
+      ]
+    },
+    {
+      "from": 388809,
+      "to": 185099,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 388809,
+      "to": 467307,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 388809,
+      "to": 107270,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 440008,
+      "to": 115175,
+      "kinds": [
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 440008,
+      "to": 198533,
+      "kinds": [
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 440008,
+      "to": 343737,
+      "kinds": [
+        "Spell Duration"
+      ]
+    },
+    {
+      "from": 458431,
+      "to": 119611,
+      "kinds": [
+        "Spell Duration",
+        "Spell Effect 2"
+      ]
+    },
+    {
+      "from": 467316,
+      "to": 117952,
+      "kinds": [
+        "Spell Chain Targets",
+        "Spell Periodic Amount"
+      ]
+    },
+    {
+      "from": 1243155,
+      "to": 116670,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 1243155,
+      "to": 119611,
+      "kinds": [
+        "Spell Direct Amount",
+        "Spell Periodic Amount"
+      ]
+    },
+    {
+      "from": 1243155,
+      "to": 399491,
+      "kinds": [
+        "Spell Direct Amount"
+      ]
+    },
+    {
+      "from": 1299572,
+      "to": 115175,
+      "kinds": [
+        "Spell Periodic Amount",
+        "Spell Resource Cost 1"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 446345,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 1268807,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 388491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 446345,
+      "to": 124081,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 124081,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1268807,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1268807,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388491,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388491,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388491,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1268817,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": -1,
+      "to": 115869,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388038,
+      "to": 115869,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116670,
+      "to": 197915,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 399491,
+      "to": 197915,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 197915,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 197915,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 197915,
+      "to": 115869,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 274586,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 274586,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 387991,
+      "to": 274586,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 400053,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 404408,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 471761,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388511,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388701,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1280297,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 274909,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 274909,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 388682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388682,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388593,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388593,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 115175,
+      "to": 388593,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 388847,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 124682,
+      "to": 388847,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388847,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 387991,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": -3,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 124682,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 446260,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388020,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 446260,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 446260,
+      "to": 107270,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 446260,
+      "to": 100784,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388779,
+      "to": 107270,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 438439,
+      "to": 107270,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 438439,
+      "to": 388779,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 197915,
+      "to": 116670,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 197915,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 197915,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 124682,
+      "to": 197915,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116849,
+      "to": 388548,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388548,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388548,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 100780,
+      "to": 116645,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116645,
+      "to": 100784,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 100784,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 1260511,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116670,
+      "to": 1260511,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 1260511,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1260511,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1260511,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1260511,
+      "to": 1260617,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1260511,
+      "to": 1260681,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116670,
+      "to": 124081,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": 322118,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": 325197,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 343655,
+      "to": 325197,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 343655,
+      "to": 322118,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 325197,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 100784,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 107270,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 322118,
+      "to": 343737,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388031,
+      "to": 343737,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 467270,
+      "to": 115869,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": -1,
+      "to": 197915,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388020,
+      "to": 343819,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 343655,
+      "to": -3,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 343655,
+      "to": 116645,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 343655,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388218,
+      "to": 116849,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 115869,
+      "to": 1270621,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1270621,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388779,
+      "to": 100780,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": -2,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": -2,
+      "to": 1277302,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1277302,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1277302,
+      "to": 116680,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 274909,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1268807,
+      "to": 115175,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1268807,
+      "to": 1248812,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 467293,
+      "to": 388023,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388023,
+      "to": 100780,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388023,
+      "to": 100784,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388023,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388023,
+      "to": 117952,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388023,
+      "to": 1248812,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 115175,
+      "to": 115313,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 115313,
+      "to": 198533,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116680,
+      "to": 1242910,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1242910,
+      "to": 115313,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1299572,
+      "to": 1260617,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388681,
+      "to": 1260617,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 467307,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 325197,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 322118,
+      "to": 124682,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 467270,
+      "to": 122280,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 116849,
+      "to": 467270,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1260617,
+      "to": 388593,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 198533,
+      "to": 388593,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 274586,
+      "to": 116670,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 173841,
+      "to": 185099,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 173841,
+      "to": 119611,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 173841,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 124682,
+      "to": 173841,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 173841,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 119611,
+      "to": 1271431,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1271431,
+      "to": 117907,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 422031,
+      "to": 115869,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 399226,
+      "to": 116849,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 185099,
+      "to": 388812,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388812,
+      "to": 116670,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 388812,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 124682,
+      "to": 1266734,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1266734,
+      "to": 116670,
+      "kinds": [
+        "Manual"
+      ]
+    },
+    {
+      "from": 1266734,
+      "to": 399491,
+      "kinds": [
+        "Manual"
+      ]
+    }
+  ]
+}

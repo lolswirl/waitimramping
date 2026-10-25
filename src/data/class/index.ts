@@ -10,6 +10,7 @@ import RESTO_SHAMAN from '@data/specs/shaman/restoration';
 import PRESERVATION from '@data/specs/evoker/preservation';
 import HOLY_PALADIN from '@data/specs/paladin/holy';
 import type { Bug } from '@data/bugs';
+import type { StoredInteractions } from '@data/interactions/types';
 
 type ClassInfo<TSpecs extends Record<string, specialization>> = {
   name: string;
@@ -37,6 +38,7 @@ export interface specialization {
 
   rotations?: Record<string, spell[]>;
   bugs?: Bug[];
+  interactions?: StoredInteractions; // written by scripts/gen-interactions.mjs
 }
 
 export const CLASSES = {

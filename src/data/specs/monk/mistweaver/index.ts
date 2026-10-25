@@ -12,6 +12,8 @@ import corePassive from '@data/specs/monk/mistweaver/core-passive/core-passive';
 import corePassive2 from '@data/specs/monk/mistweaver/core-passive/core-passive-2';
 import TIER from '@data/items/tier';
 import type spell from '@data/spells/spell';
+import type { StoredInteractions } from '@data/interactions/types';
+import MISTWEAVER_MONK_INTERACTIONS from '@data/specs/monk/mistweaver/interactions.json';
 
 const MISTWEAVER_TIER_SET = new Map<spell, boolean>([
   [TIER.T36_MISTWEAVER_2SET, true],
@@ -27,6 +29,7 @@ const MISTWEAVER_MONK = ({
   rotations: MISTWEAVER_MONK_ROTATIONS,
   buffs: MISTWEAVER_MONK_BUFFS,
   bugs: MONK_BUGS.concat(MISTWEAVER_MONK_BUGS),
+  interactions: MISTWEAVER_MONK_INTERACTIONS as StoredInteractions,
   icon: 'spell_monk_mistweaver_spec',
   name: 'Mistweaver',
   class: 'Monk',

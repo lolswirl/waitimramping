@@ -1,0 +1,559 @@
+{
+    "aliases": {
+        "Blackout Kick (Cleave)": "Blackout Kick"
+    },
+    "extraNodes": [
+        {
+            "id": -1,
+            "name": "Critical Strike",
+            "iconUrl": "/icons/attribute_criticalstrike.svg"
+        },
+        {
+            "id": -2,
+            "name": "Mastery",
+            "iconUrl": "/icons/attribute_mastery.svg"
+        },
+        {
+            "id": -3,
+            "name": "Chi Cocoon (Yu'lon / Chi-Ji)",
+            "spellIds": [
+                406139,
+                406220
+            ]
+        }
+    ],
+    "links": [
+        [
+            "Thunder Focus Tea",
+            "Rising Sun Kick"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Deep Clarity"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Emperor's Elixir"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Secret Infusion"
+        ],
+        [
+            "Deep Clarity",
+            "Zen Pulse"
+        ],
+        [
+            "Renewing Mist",
+            "Zen Pulse"
+        ],
+        [
+            "Emperor's Elixir",
+            "Enveloping Mist"
+        ],
+        [
+            "Emperor's Elixir",
+            "Rising Sun Kick"
+        ],
+        [
+            "Secret Infusion",
+            "Enveloping Mist"
+        ],
+        [
+            "Secret Infusion",
+            "Renewing Mist"
+        ],
+        [
+            "Secret Infusion",
+            "Rising Sun Kick"
+        ],
+        [
+            "Misty Coalescence",
+            "Renewing Mist"
+        ],
+        [
+            "Critical Strike",
+            "Mana Tea"
+        ],
+        [
+            "Yu'lon's Whisper",
+            "Mana Tea"
+        ],
+        [
+            "Vivify",
+            "Lifecycles"
+        ],
+        [
+            "Sheilun's Gift",
+            "Lifecycles"
+        ],
+        [
+            "Lifecycles",
+            "Rising Sun Kick"
+        ],
+        [
+            "Lifecycles",
+            "Enveloping Mist"
+        ],
+        [
+            "Lifecycles",
+            "Mana Tea"
+        ],
+        [
+            "Invigorating Mists",
+            "Sheilun's Gift"
+        ],
+        [
+            "Renewing Mist",
+            "Invigorating Mists"
+        ],
+        [
+            "Tear of Morning",
+            "Invigorating Mists"
+        ],
+        [
+            "Veil of Pride",
+            "Sheilun's Gift"
+        ],
+        [
+            "Legacy of Wisdom",
+            "Sheilun's Gift"
+        ],
+        [
+            "Emperor's Favor",
+            "Sheilun's Gift"
+        ],
+        [
+            "Overflowing Mists",
+            "Enveloping Mist"
+        ],
+        [
+            "Dancing Mists",
+            "Renewing Mist"
+        ],
+        [
+            "Mistline",
+            "Renewing Mist"
+        ],
+        [
+            "Rising Mist",
+            "Renewing Mist"
+        ],
+        [
+            "Rising Mist",
+            "Enveloping Mist"
+        ],
+        [
+            "Renewing Mist",
+            "Misty Peaks"
+        ],
+        [
+            "Misty Peaks",
+            "Enveloping Mist"
+        ],
+        [
+            "Peaceful Mending",
+            "Enveloping Mist"
+        ],
+        [
+            "Peaceful Mending",
+            "Renewing Mist"
+        ],
+        [
+            "Soothing Mist",
+            "Peaceful Mending"
+        ],
+        [
+            "Rising Sun Kick",
+            "Rapid Diffusion"
+        ],
+        [
+            "Enveloping Mist",
+            "Rapid Diffusion"
+        ],
+        [
+            "Rapid Diffusion",
+            "Renewing Mist"
+        ],
+        [
+            "Tear of Morning",
+            "Enveloping Mist"
+        ],
+        [
+            "Jade Bond",
+            "Chi Cocoon (Yu'lon / Chi-Ji)"
+        ],
+        [
+            "Jade Bond",
+            "Enveloping Mist"
+        ],
+        [
+            "Renewing Mist",
+            "Gust of Mists"
+        ],
+        [
+            "Enveloping Mist",
+            "Gust of Mists"
+        ],
+        [
+            "Crane Style",
+            "Gust of Mists"
+        ],
+        [
+            "Resplendent Mist",
+            "Gust of Mists"
+        ],
+        [
+            "Crane Style",
+            "Rising Sun Kick"
+        ],
+        [
+            "Crane Style",
+            "Spinning Crane Kick"
+        ],
+        [
+            "Crane Style",
+            "Blackout Kick"
+        ],
+        [
+            "Way of the Crane",
+            "Spinning Crane Kick"
+        ],
+        [
+            "Dance of Chi-Ji",
+            "Spinning Crane Kick"
+        ],
+        [
+            "Dance of Chi-Ji",
+            "Way of the Crane"
+        ],
+        [
+            "Lifecycles",
+            "Vivify"
+        ],
+        [
+            "Lifecycles",
+            "Sheilun's Gift"
+        ],
+        [
+            "Rising Sun Kick",
+            "Lifecycles"
+        ],
+        [
+            "Enveloping Mist",
+            "Lifecycles"
+        ],
+        [
+            "Life Cocoon",
+            "Mists of Life"
+        ],
+        [
+            "Mists of Life",
+            "Renewing Mist"
+        ],
+        [
+            "Mists of Life",
+            "Enveloping Mist"
+        ],
+        [
+            "Tiger Palm",
+            "Teachings of the Monastery"
+        ],
+        [
+            "Teachings of the Monastery",
+            "Blackout Kick"
+        ],
+        [
+            "Blackout Kick",
+            "Rising Sun Kick"
+        ],
+        [
+            "Rising Sun Kick",
+            "Spiritfont"
+        ],
+        [
+            "Vivify",
+            "Spiritfont"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Spiritfont"
+        ],
+        [
+            "Spiritfont",
+            "Enveloping Mist"
+        ],
+        [
+            "Spiritfont",
+            "Rising Sun Kick"
+        ],
+        [
+            "Spiritfont",
+            "Soothing Mist (Spiritfont)"
+        ],
+        [
+            "Spiritfont",
+            "Chi Cocoon (Spiritfont)"
+        ],
+        [
+            "Vivify",
+            "Zen Pulse"
+        ],
+        [
+            "Jade Bond",
+            "Yu'lon"
+        ],
+        [
+            "Jade Bond",
+            "Chi-Ji"
+        ],
+        [
+            "Celestial Harmony",
+            "Chi-Ji"
+        ],
+        [
+            "Celestial Harmony",
+            "Yu'lon"
+        ],
+        [
+            "Chi-Ji",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Blackout Kick",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Rising Sun Kick",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Spinning Crane Kick",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Jade Bond",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Yu'lon",
+            "Soothing Breath"
+        ],
+        [
+            "Jade Bond",
+            "Soothing Breath"
+        ],
+        [
+            "Refreshment",
+            "Mana Tea"
+        ],
+        [
+            "Critical Strike",
+            "Lifecycles"
+        ],
+        [
+            "Resplendent Mist",
+            "Chi-Ji's Gust of Mists"
+        ],
+        [
+            "Celestial Harmony",
+            "Chi Cocoon (Yu'lon / Chi-Ji)"
+        ],
+        [
+            "Celestial Harmony",
+            "Teachings of the Monastery"
+        ],
+        [
+            "Celestial Harmony",
+            "Enveloping Mist"
+        ],
+        [
+            "Calming Coalescence",
+            "Life Cocoon"
+        ],
+        [
+            "Mana Tea",
+            "Tranquil Tea"
+        ],
+        [
+            "Tranquil Tea",
+            "Sheilun's Gift"
+        ],
+        [
+            "Way of the Crane",
+            "Tiger Palm"
+        ],
+        [
+            "Mastery",
+            "Gust of Mists"
+        ],
+        [
+            "Mastery",
+            "Morning Breeze"
+        ],
+        [
+            "Morning Breeze",
+            "Rising Sun Kick"
+        ],
+        [
+            "Morning Breeze",
+            "Thunder Focus Tea"
+        ],
+        [
+            "Rising Sun Kick",
+            "Rising Mist"
+        ],
+        [
+            "Emperor's Elixir",
+            "Soothing Mist"
+        ],
+        [
+            "Emperor's Elixir",
+            "Jadefire Stomp"
+        ],
+        [
+            "Jadefire Teachings",
+            "Ancient Teachings"
+        ],
+        [
+            "Ancient Teachings",
+            "Tiger Palm"
+        ],
+        [
+            "Ancient Teachings",
+            "Blackout Kick"
+        ],
+        [
+            "Ancient Teachings",
+            "Rising Sun Kick"
+        ],
+        [
+            "Ancient Teachings",
+            "Crackling Jade Lightning"
+        ],
+        [
+            "Ancient Teachings",
+            "Jadefire Stomp"
+        ],
+        [
+            "Soothing Mist",
+            "Jade Serpent Statue"
+        ],
+        [
+            "Jade Serpent Statue",
+            "Soothing Mist (Statue)"
+        ],
+        [
+            "Thunder Focus Tea",
+            "Jade Infusion"
+        ],
+        [
+            "Jade Infusion",
+            "Jade Serpent Statue"
+        ],
+        [
+            "Vital Expenditure",
+            "Soothing Mist (Spiritfont)"
+        ],
+        [
+            "Elusive Mists",
+            "Soothing Mist (Spiritfont)"
+        ],
+        [
+            "Rushing Wind Kick",
+            "Rising Sun Kick"
+        ],
+        [
+            "Chi-Ji",
+            "Enveloping Mist"
+        ],
+        [
+            "Yu'lon",
+            "Enveloping Mist"
+        ],
+        [
+            "Refreshment",
+            "Healing Elixir"
+        ],
+        [
+            "Life Cocoon",
+            "Refreshment"
+        ],
+        [
+            "Soothing Mist (Spiritfont)",
+            "Peaceful Mending"
+        ],
+        [
+            "Soothing Mist (Statue)",
+            "Peaceful Mending"
+        ],
+        [
+            "Invigorating Mists",
+            "Vivify"
+        ],
+        [
+            "Pool of Mists",
+            "Rising Sun Kick"
+        ],
+        [
+            "Pool of Mists",
+            "Renewing Mist"
+        ],
+        [
+            "Rising Sun Kick",
+            "Pool of Mists"
+        ],
+        [
+            "Enveloping Mist",
+            "Pool of Mists"
+        ],
+        [
+            "Renewing Mist",
+            "Pool of Mists"
+        ],
+        [
+            "Renewing Mist",
+            "Amplified Rush"
+        ],
+        [
+            "Amplified Rush",
+            "Gust of Mists"
+        ],
+        [
+            "Energizing Brew",
+            "Mana Tea"
+        ],
+        [
+            "Chrysalis",
+            "Life Cocoon"
+        ],
+        [
+            "Burst of Life",
+            "Life Cocoon"
+        ],
+        [
+            "Rising Sun Kick",
+            "Vivacious Vivification"
+        ],
+        [
+            "Vivacious Vivification",
+            "Vivify"
+        ],
+        [
+            "Vivacious Vivification",
+            "Sheilun's Gift"
+        ],
+        [
+            "Enveloping Mist",
+            "Serene Surge"
+        ],
+        [
+            "Serene Surge",
+            "Vivify"
+        ],
+        [
+            "Serene Surge",
+            "Sheilun's Gift"
+        ]
+    ]
+}
