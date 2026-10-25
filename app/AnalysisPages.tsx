@@ -12,6 +12,7 @@ import MistyCoalescence from "./analysis/misty-coalescence/MistyCoalescence";
 import AbsorbVsDRCompare from "./analysis/external-comparison/AbsorbVsDRCompare";
 import WhenDoIRamp from "./when-do-i-ramp/WhenDoIRamp";
 import Timeline from "./timeline/Timeline";
+import Interactions from "./analysis/interactions/Interactions"
 import SPELLS from "@data/spells";
 import SpellLink from "@components/SpellLink";
 import TALENTS from "@data/talents";
@@ -28,9 +29,9 @@ export interface AnalysisPage {
   component: React.ComponentType<{ title: React.ReactNode; description: React.ReactNode }>;
 }
 
-export const externalComparison = { 
-  label: "Absorb vs. Damage Reduction", 
-  path: "/analysis/external-comparison", 
+export const externalComparison = {
+  label: "Absorb vs. Damage Reduction",
+  path: "/analysis/external-comparison",
   preview: "/previews/external-comparison.png",
   description: "Compare the effectiveness of Damage Reduction to find how damage can scale past Absorbs",
   tags: ["Damage Reduction"],
@@ -39,9 +40,9 @@ export const externalComparison = {
 };
 
 
-export const mwDamage = { 
-  label: "Mistweaver Damage Comparison", 
-  path: "/analysis/mw-damage", 
+export const mwDamage = {
+  label: "Mistweaver Damage Comparison",
+  path: "/analysis/mw-damage",
   preview: "/previews/mw-damage.png",
   description: "Evaluate formulated damage output of Mistweaver rotations",
   tags: ["Rotation", "Damage"],
@@ -49,9 +50,9 @@ export const mwDamage = {
   component: DamageComparison
 };
 
-export const harmonicSurge = { 
-  label: <SpellLink spell={TALENTS.HARMONIC_SURGE}/>, 
-  path: "/analysis/harmonic-surge", 
+export const harmonicSurge = {
+  label: <SpellLink spell={TALENTS.HARMONIC_SURGE}/>,
+  path: "/analysis/harmonic-surge",
   preview: "/previews/harmonic-surge.png",
   description: <>
     Analyze <SpellLink spell={TALENTS.HARMONIC_SURGE}/>'s spellpower output compared to the other <SpellLink spell={TALENTS.ANCIENT_TEACHINGS}/> abilities
@@ -61,11 +62,11 @@ export const harmonicSurge = {
   component: HarmonicSurge
 };
 
-export const risingSunKickResets = { 
+export const risingSunKickResets = {
   label: <>
     <SpellLink spell={SPELLS.RISING_SUN_KICK}/> Resets
-  </>, 
-  path: "/analysis/rising-sun-kick-resets", 
+  </>,
+  path: "/analysis/rising-sun-kick-resets",
   preview: "/previews/rising-sun-kick-resets.png",
   description: <>
     Find the probabilities of <SpellLink spell={SPELLS.RISING_SUN_KICK}/> resets based on input rotations
@@ -199,19 +200,30 @@ export const spellReference = {
   component: SpellReference,
 };
 
+export const interactions = {
+    label: "Interactions",
+    path: "/analysis/interactions",
+    preview: "/previews/timeline.png",
+    description: "Flowchart of spell and talent interactions",
+    tags: [],
+    createdDate: date(2026, 10, 25),
+    component: Interactions,
+}
+
 export const analysisPages: AnalysisPage[] = [
-  spellReference,
-  externalComparison,
-  mwDamage,
-  harmonicSurge,
-  risingSunKickResets,
-  chiJi,
-  heartOfTheJadeSerpent,
-  celestialConduit,
-  mistyCoalescence,
-  jadefireTeachingsRwk,
-  sheilunVsDocj,
-  sheilunsGiftBreakdown,
-  whenDoIRamp,
-  spellTimeline,
+    spellReference,
+    externalComparison,
+    mwDamage,
+    harmonicSurge,
+    risingSunKickResets,
+    chiJi,
+    heartOfTheJadeSerpent,
+    celestialConduit,
+    mistyCoalescence,
+    jadefireTeachingsRwk,
+    sheilunVsDocj,
+    sheilunsGiftBreakdown,
+    whenDoIRamp,
+    spellTimeline,
+    interactions
 ];
