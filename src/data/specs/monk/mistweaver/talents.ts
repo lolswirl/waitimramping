@@ -544,12 +544,18 @@ const talents = {
         id: 450531,
         icon: 'inv_10_gathering_bioluminescentspores_large',
         heroTalent: MOH,
+        display: {
+            name: "Aspect of Harmony (Store)"
+        },
     },
     ASPECT_OF_HARMONY_WITHDRAW: {
         name: "Aspect of Harmony",
         id: 450711,
         icon: 'ability_evoker_essenceburst3',
         heroTalent: MOH,
+        display: {
+            name: "Aspect of Harmony (Withdraw)"
+        },
     },
     ASPECT_OF_HARMONY_HOT: {
         name: "Aspect of Harmony",
@@ -614,6 +620,12 @@ const talents = {
         icon: 'ability_monk_explodingjadeblossom',
         heroTalent: MOH,
     },
+    HARMONIC_GAMBIT: {
+        name: "Harmonic Gambit",
+        id: 450870,
+        icon: 'passive_monk_teachingsofmonastery',
+        heroTalent: MOH,
+    },
     MANIFESTATION: {
         name: "Manifestation",
         id: 450875,
@@ -630,6 +642,30 @@ const talents = {
             transferRate: 0.50
         }
     },
+    ENDLESS_DRAUGHT: {
+        name: "Endless Draught",
+        id: 450892,
+        icon: 'inv_drink_25_honeytea',
+        heroTalent: MOH,
+    },
+    WAY_OF_A_THOUSAND_STRIKES: {
+        name: "Way of a Thousand Strikes",
+        id: 450965,
+        icon: 'ability_monk_mightyoxkick',
+        heroTalent: MOH,
+    },
+    MANTRA_OF_TENACITY: {
+        name: "Mantra of Tenacity",
+        id: 451029,
+        icon: 'spell_monk_brewmastertraining',
+        heroTalent: MOH,
+    },
+    POTENTIAL_ENERGY: {
+        name: "Potential Energy",
+        id: 1271048,
+        icon: 'spell_magic_managain',
+        heroTalent: MOH,
+    },
 
     // conduit of the celestials
     TEMPLE_TRAINING: {
@@ -643,6 +679,30 @@ const talents = {
             envIncrease: 0.06,
             sckIncrease: 0 // yay
         }
+    },
+    XUENS_GUIDANCE: {
+        name: "Xuen's Guidance",
+        id: 442687,
+        icon: 'ability_monk_dpsstance',
+        heroTalent: COTC,
+    },
+    JADE_SANCTUARY: {
+        name: "Jade Sanctuary",
+        id: 443059,
+        icon: 'ability_monk_jadeserpentbreath',
+        heroTalent: COTC,
+    },
+    NIUZAOS_PROTECTION: {
+        name: "Niuzao's Protection",
+        id: 442747,
+        icon: 'ability_monk_chargingoxwave',
+        heroTalent: COTC,
+    },
+    RESTORE_BALANCE: {
+        name: "Restore Balance",
+        id: 442719,
+        icon: 'ability_monk_chiexplosion',
+        heroTalent: COTC,
     },
     COURAGE_OF_THE_WHITE_TIGER: {
         name: "Courage of the White Tiger",
@@ -743,7 +803,6 @@ const talents = {
         name: "Chrysalis",
         id: 202424,
         icon: 'ability_monk_domeofmist',
-        heroTalent: COTC,
         effects: {
             cooldown: 75,
         }
