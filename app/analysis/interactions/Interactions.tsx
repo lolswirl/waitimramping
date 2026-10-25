@@ -219,13 +219,26 @@ const pullIslandsIn = (links: InteractionData["links"], positions: Map<string, P
 
         let shift = 0;
         while (box.x1 + shift + ISLAND_STEP < maxX && free(shift + ISLAND_STEP)) shift += ISLAND_STEP;
-        if (shift === 0) continue;
 
         for (const id of island) positions.set(id, { x: (positions.get(id) as Point).x + shift, y: (positions.get(id) as Point).y });
         const members = new Set(island);
         for (const [id, points] of routes) {
             const [from, to] = id.split(">");
             if (members.has(from) && members.has(to)) routes.set(id, points.map((pt) => ({ x: pt.x + shift, y: pt.y })));
+        }
+
+        // the next island has to stop short of this one rather than land on the same spot
+        for (const id of island) {
+            const { x, y } = positions.get(id) as Point;
+            obstacles.push({ x0: x, x1: x + NODE_SIZE, y0: y, y1: y + NODE_SIZE });
+        }
+        for (const [id, points] of routes) {
+            const [from, to] = id.split(">");
+            if (!members.has(from) || !members.has(to)) continue;
+            for (let i = 1; i < points.length; i++) {
+                const [p, q] = [points[i - 1], points[i]];
+                obstacles.push({ x0: Math.min(p.x, q.x), x1: Math.max(p.x, q.x), y0: Math.min(p.y, q.y), y1: Math.max(p.y, q.y) });
+            }
         }
     }
 };
