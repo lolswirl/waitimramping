@@ -5,7 +5,7 @@ import ELK from "elkjs/lib/elk.bundled.js";
 import type { ElkExtendedEdge, ElkNode } from "elkjs/lib/elk-api";
 import { Background, BaseEdge, type Edge, type EdgeProps, Handle, type Node, type NodeProps, Position, ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Box, Typography, Container, IconButton } from "@mui/material";
+import { Box, Typography, Container, IconButton, Skeleton } from "@mui/material";
 import { Fullscreen, FullscreenExit } from "@mui/icons-material";
 import PageHeader from "@components/PageHeader/PageHeader";
 import { FONT, HAIRLINE, ICON, INK, RADIUS, CONTENT_WIDTH } from "@components/Theme/tokens";
@@ -160,6 +160,21 @@ const RoutedEdge: React.FC<EdgeProps<Edge<RoutedEdgeData>>> = ({ id, source, tar
         </g>
     );
 };
+
+// icon-sized blocks in columns, like the chart's layers, while the layout is worked out
+const SKELETON_COLUMNS = [3, 5, 6, 5, 4, 3, 2];
+
+const ChartSkeleton: React.FC = () => (
+    <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+        {SKELETON_COLUMNS.map((count, column) => (
+            <Box key={column} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {Array.from({ length: count }, (_, row) => (
+                    <Skeleton key={row} variant="rounded" animation="pulse" width={NODE_SIZE} height={NODE_SIZE} />
+                ))}
+            </Box>
+        ))}
+    </Box>
+);
 
 const nodeTypes = { spell: SpellNode };
 const edgeTypes = { routed: RoutedEdge };
@@ -405,6 +420,7 @@ const Interactions: React.FC<{ title: React.ReactNode; description: React.ReactN
                             <Typography sx={{ fontSize: FONT.body, color: "text.secondary" }}>there's no interaction chart for {spec.name} {spec.class} yet</Typography>
                         </Box>
                     )}
+                    {interactions && !placed && <ChartSkeleton />}
                     {placed && (
                         <HoverContext.Provider value={{ hovered, connected, container: fullscreen ? (chartRef.current ?? undefined) : undefined }}>
                             <ReactFlow
