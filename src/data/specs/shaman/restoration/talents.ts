@@ -75,6 +75,11 @@ const talents = {
         name: "Stormswell",
         id: 1268684,
         icon: "inv12_apextalent_shaman_stormstreamtotem",
+    },
+    OVERFLOWING_SHORES: {
+        name: "Overflowing Shores",
+        id: 383222,
+        icon: 'spell_nature_giftofthewaterspirit',
     }
 } satisfies Record<string, spell>;
 

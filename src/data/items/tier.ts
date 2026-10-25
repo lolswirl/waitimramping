@@ -38,6 +38,16 @@ const tier = {
         effects: {
             resetChance: 0.25,
         }
+    },
+    T36_RESTORATION_SHAMAN_2SET: {
+        name: "12.1 Restoration Shaman 2pc",
+        id: 1296629,
+        icon: "inv_shoulder_mail_raidshamanulatek_d_01",
+    },
+    T36_RESTORATION_SHAMAN_4SET: {
+        name: "12.1 Restoration Shaman 4pc",
+        id: 1296630,
+        icon: "inv_helm_mail_raidshamanulatek_d_01",
     }
 } satisfies Record<string, spell>;
 
