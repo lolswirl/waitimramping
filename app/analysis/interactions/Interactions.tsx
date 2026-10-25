@@ -6,6 +6,7 @@ import type { ElkExtendedEdge, ElkNode } from "elkjs/lib/elk-api";
 import { Background, BaseEdge, type Edge, type EdgeProps, Handle, type Node, type NodeProps, Position, ReactFlow } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { Box, Typography, Container, IconButton } from "@mui/material";
+import { keyframes } from "@mui/material/styles";
 import { Fullscreen, FullscreenExit } from "@mui/icons-material";
 import PageHeader from "@components/PageHeader/PageHeader";
 import { FONT, HAIRLINE, ICON, INK, RADIUS, CONTENT_WIDTH } from "@components/Theme/tokens";
@@ -19,6 +20,19 @@ import { GlassTooltip } from "@components/Glass/Tooltip/GlassTooltip";
 
 const NODE_SIZE = ICON.lg;
 const ACCENT = RAINBOW_COLORS[0];
+
+// only opacity and transform, which keep animating while the layout engine holds the main thread
+const lit = keyframes`
+    0%, 100% { opacity: 0; }
+    33% { opacity: 1; }
+    66% { opacity: 0; }
+`;
+
+const halo = keyframes`
+    0%, 100% { opacity: 0; transform: scale(1); }
+    33% { opacity: 0.27; transform: scale(2.4); }
+    66% { opacity: 0; transform: scale(1); }
+`;
 
 interface Point {
     x: number;
@@ -291,11 +305,15 @@ const Interactions: React.FC<{ title: React.ReactNode; description: React.ReactN
         setHovered(null);
         if (!interactions) return;
         let current = true;
-        layout(interactions).then((result) => {
-            if (current) setPlaced(result);
-        });
+        // the layout holds the main thread, so it waits a moment for the loading dots to paint
+        const start = setTimeout(() => {
+            layout(interactions).then((result) => {
+                if (current) setPlaced(result);
+            });
+        }, 100);
         return () => {
             current = false;
+            clearTimeout(start);
         };
     }, [interactions]);
 
@@ -403,6 +421,16 @@ const Interactions: React.FC<{ title: React.ReactNode; description: React.ReactN
                     {!interactions && (
                         <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", px: 2 }}>
                             <Typography sx={{ fontSize: FONT.body, color: "text.secondary" }}>there's no interaction chart for {spec.name} {spec.class} yet</Typography>
+                        </Box>
+                    )}
+                    {interactions && !placed && (
+                        <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 1.5 }}>
+                            {[0, 1, 2].map((i) => (
+                                <Box key={i} sx={{ position: "relative", width: 9, height: 9, borderRadius: "50%", backgroundColor: INK.muted }}>
+                                    <Box sx={{ position: "absolute", inset: 0, borderRadius: "50%", backgroundColor: ACCENT, opacity: 0, animation: `${halo} 1.2s ease-in-out ${i * 0.4}s infinite` }} />
+                                    <Box sx={{ position: "absolute", inset: 0, borderRadius: "50%", backgroundColor: ACCENT, opacity: 0, animation: `${lit} 1.2s ease-in-out ${i * 0.4}s infinite` }} />
+                                </Box>
+                            ))}
                         </Box>
                     )}
                     {placed && (
