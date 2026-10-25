@@ -263,6 +263,9 @@ const talents = {
         name: "Soothing Mist",
         id: 198533,
         icon: 'ability_monk_soothingmists',
+        display: {
+            name: "Soothing Mist (Statue)"
+        },
     },
     MANA_TEA: {
         name: "Mana Tea",
