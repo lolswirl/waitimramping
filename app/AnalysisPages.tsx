@@ -203,7 +203,7 @@ export const spellReference = {
 export const interactions = {
     label: "Interactions",
     path: "/analysis/interactions",
-    preview: "/previews/timeline.png",
+    preview: "/previews/interactions.png",
     description: "Flowchart of spell and talent interactions",
     tags: [],
     createdDate: date(2026, 10, 25),
