@@ -23,6 +23,7 @@ export interface InteractionData {
 export interface StoredInteractions {
     source: string;
     nodes: number[];
+    heroNodes: number[];
     extraNodes: { id: number; name: string; iconUrl?: string; spellIds?: [number, number] }[];
     links: InteractionLink[];
 }

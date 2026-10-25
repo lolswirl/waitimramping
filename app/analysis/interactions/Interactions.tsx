@@ -13,7 +13,7 @@ import { RAINBOW_COLORS } from "@components/Buttons/RainbowCard";
 import { iconFallbackUrl, iconLocalUrl } from "@util/wowhead";
 import { type InteractionData, getInteractions } from "@data/interactions";
 import ConfigPanel from "@components/ConfigPanel/ConfigPanel";
-import { SpecChip } from "@components/FilterChips/FilterChips";
+import { SelectChip, SpecChip } from "@components/FilterChips/FilterChips";
 import { useSpec } from "@context/SpecContext";
 import { GlassTooltip } from "@components/Glass/Tooltip/GlassTooltip";
 
@@ -265,11 +265,12 @@ const Interactions: React.FC<{ title: React.ReactNode; description: React.ReactN
     const [placed, setPlaced] = useState<Layout | null>(null);
     const [hovered, setHovered] = useState<string | null>(null);
     const [fullscreen, setFullscreen] = useState(false);
+    const [withHero, setWithHero] = useState(false);
     const chartRef = useRef<HTMLDivElement>(null);
 
     const { spec, setSpec } = useSpec();
 
-    const interactions = getInteractions(spec);
+    const interactions = getInteractions(spec, withHero);
 
     // the chart is laid out again for each spec, so the old one is dropped first
     useEffect(() => {
@@ -346,7 +347,22 @@ const Interactions: React.FC<{ title: React.ReactNode; description: React.ReactN
             <ConfigPanel
               sx={{ maxWidth: CONTENT_WIDTH.wide }}
               accent={spec.color}
-                leading={<SpecChip accent={spec.color} spec={spec} onChange={setSpec} />}
+                leading={
+                    <>
+                        <SpecChip accent={spec.color} spec={spec} onChange={setSpec} />
+                        <SelectChip
+                            accent={spec.color}
+                            title="hero talents"
+                            value={withHero ? "on" : "off"}
+                            options={[
+                                { value: "off", label: "off" },
+                                { value: "on", label: "on" },
+                            ]}
+                            onChange={(value) => setWithHero(value === "on")}
+                            active={withHero}
+                        />
+                    </>
+                }
                 sections = {[]}
             />
             <Box sx={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, gap: 0 }}>

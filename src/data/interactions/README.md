@@ -54,7 +54,6 @@ flags:
 | --- | --- |
 | `--report` | also prints the broad modifiers that were left out, with everything they touch |
 | `--with-aura` | keeps plain "Apply Aura" links, drawn dashed. it made the mistweaver chart a wall of lines, so it's off |
-| `--with-hero` | keeps hero talents, which are left out by default to keep the chart small |
 
 ## what the generator keeps
 
@@ -65,7 +64,8 @@ from the spell with the effect to the spell it changes, then:
 - drops a link whose only effect is "Apply Aura", since it says a spell applies something but not what changes
 - drops a spell that modifies more than 6 spells ("broad modifier"), since it buries the real links. `--report`
   shows what that removed
-- drops anything marked `heroTalent` in your data
+- records which nodes are hero talents (`heroTalent` in your data) as `heroNodes`. they are all kept in the json; the
+  page's "hero talents" chip hides them, and their links, when it is off
 - merges entries with the same name into one node. an entry with a `display.name` counts as that name instead, which
   is how a variant (a spiritfont copy, a statue's cast) stays its own node
 
@@ -97,6 +97,10 @@ is thin (holy paladin came out as 11 spells and 12 links).
 - **extraNodes**: chart-only nodes, with a negative id so they can't clash with a spell id. give either an
   `iconUrl` (a stat icon, say) or two `spellIds`, which are drawn as one icon cut along the diagonal using those
   spells' icons.
+- **exclude**: names to leave off the chart, with every link to them. for a spell the data files still have but the
+  spec no longer does, since simc's spell data can still link it.
+- **removeLinks**: `[from, to]` pairs to drop from the chart, for a link simc produces that doesn't apply to the spec
+  (a talent's text that is for another spec).
 - **aliases**: folds one name onto another so they are the same node, for example a cleave that is just part of the
   spell it comes from.
 

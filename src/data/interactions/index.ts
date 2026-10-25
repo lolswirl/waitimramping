@@ -11,9 +11,11 @@ for (const s of [...Object.values(SPELLS), ...Object.values(TALENTS)] as spell[]
     if (!spellsById.has(s.id)) spellsById.set(s.id, s);
 }
 
-const resolve = (stored: StoredInteractions): InteractionData => {
+const resolve = (stored: StoredInteractions, withHero: boolean): InteractionData => {
+    const hero = new Set(stored.heroNodes);
     const nodes: InteractionNode[] = [];
     for (const id of stored.nodes) {
+        if (!withHero && hero.has(id)) continue;
         const found = spellsById.get(id);
         if (!found) {
             console.warn(`interactions: spell ${id} is not in the spell or talent data, rerun scripts/gen-interactions.mjs`);
@@ -32,19 +34,22 @@ const resolve = (stored: StoredInteractions): InteractionData => {
         });
     }
     const ids = new Set(nodes.map((n) => n.id));
-    return { source: stored.source, nodes, links: stored.links.filter((l) => ids.has(l.from) && ids.has(l.to)) };
+    const links = stored.links.filter((l) => ids.has(l.from) && ids.has(l.to));
+    // switching hero talents off can leave a spell whose only links were to them, which would float on its own
+    const linked = new Set(links.flatMap((l) => [l.from, l.to]));
+    return { source: stored.source, nodes: nodes.filter((n) => linked.has(n.id)), links };
 };
 
-// kept per spec so the chart gets the same object back, which the page uses to know nothing changed
-const resolved = new WeakMap<StoredInteractions, InteractionData>();
+// kept per spec and hero setting so the chart gets the same object back, which the page uses to know nothing changed
+const resolved = new WeakMap<StoredInteractions, Record<"with" | "without", InteractionData>>();
 
 // a spec with no `interactions` on it has no chart yet
-export const getInteractions = (spec: specialization): InteractionData | undefined => {
+export const getInteractions = (spec: specialization, withHero: boolean): InteractionData | undefined => {
     if (!spec.interactions) return undefined;
-    let data = resolved.get(spec.interactions);
-    if (!data) {
-        data = resolve(spec.interactions);
-        resolved.set(spec.interactions, data);
+    let cached = resolved.get(spec.interactions);
+    if (!cached) {
+        cached = { with: resolve(spec.interactions, true), without: resolve(spec.interactions, false) };
+        resolved.set(spec.interactions, cached);
     }
-    return data;
+    return withHero ? cached.with : cached.without;
 };

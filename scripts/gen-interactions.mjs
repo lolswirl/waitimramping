@@ -1,4 +1,4 @@
-// usage: node scripts/gen-interactions.mjs <class> <spec> <path to SimulationCraft SpellDataDump/<class>.txt> [--with-aura] [--with-hero] [--report]
+// usage: node scripts/gen-interactions.mjs <class> <spec> <path to SimulationCraft SpellDataDump/<class>.txt> [--with-aura] [--report]
 // for example: node scripts/gen-interactions.mjs monk mistweaver ../simc/SpellDataDump/monk.txt
 // reads the "Affected Spells" lists SimC dumps for every spell effect, keeps the edges between spells that
 // exist in the spec's data files, adds the hand-written links from the spec's interactions.manual.json when
@@ -30,12 +30,14 @@ const DATA_FILES = [`${classDir}/talents.ts`, `${classDir}/spells.ts`, `${specDi
 const manualPath = join(root, `${specDir}/interactions.manual.json`);
 const manual = {
     aliases: {},
+    exclude: [],
+    removeLinks: [],
     extraNodes: [],
     links: [],
     ...(existsSync(manualPath) ? JSON.parse(readFileSync(manualPath, "utf8")) : {}),
 };
 const siteSpells = new Map();
-const heroIds = new Set();
+const heroNames = new Set();
 const entry = /name:\s*(["'`])(.+?)\1,\s*id:\s*(\d+),\s*icon:\s*(["'`])(.+?)\4/g;
 for (const file of DATA_FILES) {
     const text = readFileSync(join(root, file), "utf8");
@@ -46,7 +48,7 @@ for (const file of DATA_FILES) {
         const display = body.match(/display:\s*\{\s*name:\s*(["'`])(.+?)\1/);
         const name = display ? display[2] : m[2];
         siteSpells.set(Number(m[3]), { id: Number(m[3]), name, icon: m[5] });
-        if (/heroTalent:/.test(body)) heroIds.add(Number(m[3]));
+        if (/heroTalent:/.test(body)) heroNames.add(name);
     });
 }
 
@@ -148,25 +150,25 @@ if (missing.size > 0) {
     process.exit(1);
 }
 
-// hero talents are left out by default (--with-hero keeps them) to keep the chart small
-const withHero = process.argv.includes("--with-hero");
-const isHero = (id) => heroIds.has(id);
+// spells the data files still have but the spec no longer has, so the chart shouldn't draw them
+const excluded = new Set(manual.exclude.map(resolve));
+const removed = new Set(manual.removeLinks.map(([from, to]) => `${resolve(from)}>${resolve(to)}`));
 const allLinks = [...merged]
     .map(([key, kinds]) => {
         const [from, to] = key.split(">").map(Number);
         return { from, to, kinds: [...kinds].sort() };
     })
-    .filter((l) => withHero || !(isHero(l.from) || isHero(l.to)));
-const droppedHero = new Set([...merged.keys()].flatMap((k) => k.split(">").map(Number)).filter((id) => heroIds.has(id)));
-if (!withHero) console.log(`left out as hero talents: ${[...droppedHero].map((id) => siteSpells.get(id).name).join(", ")}`);
+    .filter((l) => !excluded.has(l.from) && !excluded.has(l.to) && !removed.has(`${l.from}>${l.to}`));
 const used = new Set(allLinks.flatMap((l) => [l.from, l.to]));
 const extraById = new Map([...extraNodes.values()].map((n) => [n.id, n]));
 const nameOf = (id) => (extraById.get(id) ?? siteSpells.get(id)).name;
 const spellIds = [...used].filter((id) => !extraById.has(id)).sort((a, b) => nameOf(a).localeCompare(nameOf(b)));
 const extraUsed = [...used].filter((id) => extraById.has(id)).map((id) => extraById.get(id));
 const nodes = [...spellIds, ...extraUsed];
+// the page hides these, and any link to them, when hero talents are switched off
+const heroNodes = spellIds.filter((id) => heroNames.has(nameOf(id)));
 
-const out = { source: build, nodes: spellIds, extraNodes: extraUsed, links: allLinks };
+const out = { source: build, nodes: spellIds, heroNodes, extraNodes: extraUsed, links: allLinks };
 writeFileSync(join(root, `${specDir}/interactions.json`), `${JSON.stringify(out, null, 2)}\n`);
 console.log(
     `${build}\n${siteSpells.size} site spells, ${nodes.length} nodes, ${allLinks.length} edges (${links.length} from SimC, ${manual.links.length} manual)`,
