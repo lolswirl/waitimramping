@@ -52,7 +52,7 @@ const spells = {
         castTime: 2.5,
         category: CATEGORY.HEALING,
     },
-    NATURES_SWIFTNESS: {
+    SHAMAN_NATURES_SWIFTNESS: {
         name: "Nature's Swiftness",
         id: 378081,
         icon: "spell_nature_ravenform",

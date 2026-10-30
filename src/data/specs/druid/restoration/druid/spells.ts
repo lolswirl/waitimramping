@@ -44,7 +44,7 @@ const spells = {
     castTime: 0,
     category: CATEGORY.HEALING,
   },
-  NATURES_SWIFTNESS: {
+  DRUID_NATURES_SWIFTNESS: {
     name: "Nature's Swiftness",
     id: 132158,
     icon: 'spell_nature_ravenform',
