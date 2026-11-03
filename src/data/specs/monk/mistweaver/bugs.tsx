@@ -1047,11 +1047,16 @@ const BUGS: Bug[] = [
     {
         spell: SPELLS.SPINNING_CRANE_KICK,
         severity: SEVERITY.MEDIUM,
-        buildsTested: ["67186", "67314"],
-        title: <>Taking damage sometimes cancels <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /></>,
-        description: <>Inconsistently, sometimes while taking damage, <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> gets cancelled and does not continue the rest of its allocated ticks of damage.</>,
+        buildsTested: ["67186", "67314", "70688"],
+        title: <>Taking damage with an appearance-altering effect active cancels <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /></>,
+        description: <>Taking damage while an appearance-altering effect is active gets <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> cancelled, and it does not continue the rest of its allocated ticks of damage. It only happens with an appearance active, and only on some accounts, not all.
+            <br/>
+            <br/>
+        Reported with <ItemLink item={ITEMS.SAVORY_DEVIATE_DELIGHT}/>, <ItemLink item={ITEMS.SPECTRAL_GROG}/>, <ItemLink item={ITEMS.ATOMIC_RECALIBRATOR}/>, <ItemLink item={ITEMS.EFFIGY_OF_DUNDUN}/> and the <ItemLink item={ITEMS.BLUBBERY_MUFFIN}/>, so it is likely to happen with practically all appearance-altering effects.</>,
+        notes: "Cause reported by Yiuon (video).",
         logs: [
             { label: "", url: "https://www.warcraftlogs.com/reports/T4DVfmbBrXxYgRPt?fight=1&type=summary&source=8&pins=2%24Separate%24%23244F4B%24any%24-1%240.0.0.Any%240.0.0.Any%24true%240.0.0.Any%24true%24101546%7C107270%5E0%24Separate%24%23909049%24damage%241%24183748649.0.0.Monk%240.0.0.Any%24true%240.0.0.Any%24true%240&pull=5&view=events&start=932807&end=947787" },
+            { label: "Cancels with an appearance-altering effect (video by Yiuon)", url: "https://x.com/yiuonmw/status/2117196863124201705" },
         ]
     },
     {
