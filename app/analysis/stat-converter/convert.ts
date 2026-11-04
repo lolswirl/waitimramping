@@ -33,6 +33,12 @@ export const ratingToPercent = (rating: number, perPercent: number): number => {
 
 export const MAX_PERCENT = ratingToPercent(Number.POSITIVE_INFINITY, 1);
 
+export const currentPenalty = (rating: number, perPercent: number): number => {
+    const raw = Math.max(rating, 0) / perPercent;
+    const bracket = DR_BRACKETS.find(({ to }) => raw <= to);
+    return bracket ? 1 - bracket.keep : 1;
+};
+
 export const percentToRating = (percent: number, perPercent: number): number | null => {
     let remaining = Math.max(percent, 0);
     let from = 0;
