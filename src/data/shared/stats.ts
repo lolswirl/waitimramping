@@ -56,7 +56,7 @@ const TERTIARY_DR: DrBracket[] = [
     { from: 10, penalty: 0.2 },
     { from: 15, penalty: 0.4 },
     { from: 20, penalty: 0.6 },
-    { from: 49, penalty: 1 },
+    { from: 100, penalty: 1 },
 ];
 
 export const STAT_RATINGS = {
