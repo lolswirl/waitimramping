@@ -35,3 +35,38 @@ export const STAT_COLORS = {
     LEECH: "#24EB3B",
     AVOIDANCE: "#959595",
 };
+
+export const BASE_MASTERY = 8;
+
+export interface DrBracket {
+    from: number;
+    penalty: number;
+}
+
+const SECONDARY_DR: DrBracket[] = [
+    { from: 30, penalty: 0.1 },
+    { from: 40, penalty: 0.2 },
+    { from: 50, penalty: 0.3 },
+    { from: 60, penalty: 0.4 },
+    { from: 80, penalty: 0.5 },
+    { from: 200, penalty: 1 },
+];
+
+const TERTIARY_DR: DrBracket[] = [
+    { from: 10, penalty: 0.2 },
+    { from: 15, penalty: 0.4 },
+    { from: 20, penalty: 0.6 },
+    { from: 100, penalty: 1 },
+];
+
+export const STAT_RATINGS = {
+    HASTE: { per: 44, dr: SECONDARY_DR },
+    CRIT: { per: 46, dr: SECONDARY_DR },
+    MASTERY: { per: 46, dr: SECONDARY_DR },
+    VERS: { per: 54, dr: SECONDARY_DR },
+    LEECH: { per: 69, dr: TERTIARY_DR },
+    AVOIDANCE: { per: 37, dr: TERTIARY_DR },
+    SPEED: { per: 12, dr: TERTIARY_DR },
+};
+
+export type RatedStat = keyof typeof STAT_RATINGS;

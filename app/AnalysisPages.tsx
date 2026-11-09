@@ -13,6 +13,7 @@ import AbsorbVsDRCompare from "./analysis/external-comparison/AbsorbVsDRCompare"
 import WhenDoIRamp from "./when-do-i-ramp/WhenDoIRamp";
 import Timeline from "./timeline/Timeline";
 import Interactions from "./analysis/interactions/Interactions"
+import StatConverter from "./analysis/stat-converter/StatConverter";
 import SPELLS from "@data/spells";
 import SpellLink from "@components/SpellLink";
 import TALENTS from "@data/talents";
@@ -210,6 +211,16 @@ export const interactions = {
     component: Interactions,
 }
 
+export const statConverter = {
+    label: "Stat Converter",
+    path: "/analysis/stat-converter",
+    preview: "/previews/stat-converter.png",
+    description: "Convert stat rating to percent and back, with diminishing returns",
+    tags: [],
+    createdDate: date(2026, 11, 4),
+    component: StatConverter,
+}
+
 export const analysisPages: AnalysisPage[] = [
     spellReference,
     externalComparison,
@@ -225,5 +236,6 @@ export const analysisPages: AnalysisPage[] = [
     sheilunsGiftBreakdown,
     whenDoIRamp,
     spellTimeline,
-    interactions
+    interactions,
+    statConverter
 ];
