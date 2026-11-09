@@ -5,7 +5,7 @@ import RESTORATION_DRUID_TALENTS from '@data/specs/druid/restoration/druid/talen
 import RESTORATION_DRUID_ROTATIONS from '@data/specs/druid/restoration/druid/rotations';
 import { BASE_MASTERY } from '@data/shared/stats';
 
-const MASTERY_COEFFICIENT = 1.14;
+const MASTERY_COEFFICIENT = 1.311;
 
 const RESTORATION_DRUID = ({
   key: "druid_restoration",
