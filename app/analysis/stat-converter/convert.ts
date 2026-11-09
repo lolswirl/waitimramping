@@ -1,67 +1,66 @@
-export const RATING_PER_PERCENT = {
-    HASTE: 44,
-    CRIT: 46,
-    MASTERY: 46,
-    VERS: 54,
-    LEECH: 69,
-};
+interface Bracket {
+    from: number;
+    penalty: number;
+}
 
-export type StatKey = keyof typeof RATING_PER_PERCENT;
-
-const DR_BRACKETS = [
-    { to: 30, keep: 1 },
-    { to: 39, keep: 0.9 },
-    { to: 47, keep: 0.8 },
-    { to: 54, keep: 0.7 },
-    { to: 66, keep: 0.6 },
-    { to: 126, keep: 0.5 },
+const SECONDARY_DR: Bracket[] = [
+    { from: 30, penalty: 0.1 },
+    { from: 40, penalty: 0.2 },
+    { from: 50, penalty: 0.3 },
+    { from: 60, penalty: 0.4 },
+    { from: 80, penalty: 0.5 },
+    { from: 200, penalty: 1 },
 ];
 
-export const MAX_RAW_PERCENT = 126;
+const TERTIARY_DR: Bracket[] = [
+    { from: 10, penalty: 0.2 },
+    { from: 15, penalty: 0.4 },
+    { from: 20, penalty: 0.6 },
+    { from: 49, penalty: 1 },
+];
 
-export const ratingToPercent = (rating: number, perPercent: number): number => {
-    const raw = Math.min(Math.max(rating, 0) / perPercent, MAX_RAW_PERCENT);
-    let from = 0;
-    let total = 0;
-    for (const { to, keep } of DR_BRACKETS) {
-        if (raw <= from) break;
-        total += (Math.min(raw, to) - from) * keep;
-        from = to;
-    }
-    return total;
+export const STAT_CONVERSIONS = {
+    HASTE: { per: 44, dr: SECONDARY_DR },
+    CRIT: { per: 46, dr: SECONDARY_DR },
+    MASTERY: { per: 46, dr: SECONDARY_DR },
+    VERS: { per: 54, dr: SECONDARY_DR },
+    LEECH: { per: 69, dr: TERTIARY_DR },
+    AVOIDANCE: { per: 37, dr: TERTIARY_DR },
+    SPEED: { per: 12, dr: TERTIARY_DR },
 };
 
-export const drBreakdown = (rating: number, perPercent: number) => {
-    const total = Math.max(rating, 0);
-    const raw = Math.min(total / perPercent, MAX_RAW_PERCENT);
-    const rows: { penalty: number; rating: number; percent: number }[] = [];
-    let from = 0;
-    for (const { to, keep } of DR_BRACKETS) {
-        if (raw <= from) break;
-        const width = Math.min(raw, to) - from;
-        rows.push({ penalty: 1 - keep, rating: width * perPercent, percent: width * keep });
-        from = to;
-    }
-    if (total > MAX_RAW_PERCENT * perPercent) rows.push({ penalty: 1, rating: total - MAX_RAW_PERCENT * perPercent, percent: 0 });
+export type StatKey = keyof typeof STAT_CONVERSIONS;
+
+const segments = (stat: StatKey) => {
+    const edges = [{ from: 0, penalty: 0 }, ...STAT_CONVERSIONS[stat].dr];
+    return edges.slice(0, -1).map((edge, i) => ({ from: edge.from, to: edges[i + 1].from, penalty: edge.penalty }));
+};
+
+export const maxRating = (stat: StatKey) => STAT_CONVERSIONS[stat].dr[STAT_CONVERSIONS[stat].dr.length - 1].from * STAT_CONVERSIONS[stat].per;
+
+export const drBreakdown = (rating: number, stat: StatKey) => {
+    const { per } = STAT_CONVERSIONS[stat];
+    const raw = Math.max(rating, 0) / per;
+    const rows = segments(stat)
+        .filter(({ from }) => raw > from)
+        .map(({ from, to, penalty }) => {
+            const width = Math.min(raw, to) - from;
+            return { penalty, rating: width * per, percent: width * (1 - penalty) };
+        });
+    if (rating > maxRating(stat)) rows.push({ penalty: 1, rating: rating - maxRating(stat), percent: 0 });
     return rows;
 };
 
-export const MAX_PERCENT = ratingToPercent(Number.POSITIVE_INFINITY, 1);
+export const ratingToPercent = (rating: number, stat: StatKey) => drBreakdown(rating, stat).reduce((sum, row) => sum + row.percent, 0);
 
-export const percentToRating = (percent: number, perPercent: number): number | null => {
+export const maxPercent = (stat: StatKey) => ratingToPercent(maxRating(stat), stat);
+
+export const percentToRating = (percent: number, stat: StatKey) => {
     let remaining = Math.max(percent, 0);
-    let from = 0;
-    let raw = 0;
-    for (const { to, keep } of DR_BRACKETS) {
-        const width = to - from;
-        const kept = width * keep;
-        if (remaining <= kept) {
-            raw += remaining / keep;
-            return raw * perPercent;
-        }
-        raw += width;
+    for (const { from, to, penalty } of segments(stat)) {
+        const kept = (to - from) * (1 - penalty);
+        if (remaining <= kept) return (from + remaining / (1 - penalty)) * STAT_CONVERSIONS[stat].per;
         remaining -= kept;
-        from = to;
     }
-    return null;
+    return maxRating(stat);
 };

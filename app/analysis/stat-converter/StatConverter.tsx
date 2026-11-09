@@ -11,15 +11,15 @@ import { Box, Container, InputBase, Typography } from "@mui/material";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
 import React, { useState } from "react";
 
-import { drBreakdown, MAX_PERCENT, MAX_RAW_PERCENT, percentToRating, RATING_PER_PERCENT, ratingToPercent, type StatKey } from "./convert";
+import { drBreakdown, maxPercent, maxRating, percentToRating, ratingToPercent, STAT_CONVERSIONS, type StatKey } from "./convert";
 
-const STAT_KEYS = Object.keys(RATING_PER_PERCENT) as StatKey[];
+const STAT_KEYS = Object.keys(STAT_CONVERSIONS) as StatKey[];
 
 const tooltipRule = <Box sx={{ gridColumn: "1 / -1", height: "1px", backgroundColor: HAIRLINE, my: 0.25 }} />;
 
 const BASE_MASTERY = 8;
 
-const MAX_RATING = MAX_RAW_PERCENT * Math.max(...Object.values(RATING_PER_PERCENT));
+const MAX_RATING = Math.max(...STAT_KEYS.map(maxRating));
 
 const numeric = { fontFamily: MONO_FONT, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" };
 
@@ -99,20 +99,20 @@ const StatConverter: React.FC<{ title: React.ReactNode; description: React.React
             label: "per 1%",
             width: "0.6fr",
             align: "right",
-            render: (stat) => <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.secondary" }}>{RATING_PER_PERCENT[stat]}</Typography>,
+            render: (stat) => <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.secondary" }}>{STAT_CONVERSIONS[stat].per}</Typography>,
         },
         {
             key: "dr",
             label: (
-                <GlassTooltip title="Rating past 30% is penalized: 10% up to 39%, 20% to 47%, 30% to 54%, 40% to 66%, 50% to 126%">
+                <GlassTooltip title="Secondary: 10% penalty from 30%, 20% from 39%, 30% from 47%, 40% from 54%, 50% from 66%, capped at 126%. Tertiary: 20% penalty from 10%, 40% from 14%, 60% from 17%, capped at 28.6%">
                     <span>dr</span>
                 </GlassTooltip>
             ),
             width: "0.8fr",
             align: "right",
             render: (stat) => {
-                const per = RATING_PER_PERCENT[stat];
-                const rows = drBreakdown(rating, per);
+                const { per } = STAT_CONVERSIONS[stat];
+                const rows = drBreakdown(rating, stat);
                 const lostRating = rows.reduce((sum, r) => sum + r.rating * r.penalty, 0);
                 if (lostRating <= 0) return <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.disabled" }}>–</Typography>;
                 return (
@@ -150,7 +150,7 @@ const StatConverter: React.FC<{ title: React.ReactNode; description: React.React
                                     {formatNumber(rating - lostRating, 0)}
                                 </Typography>
                                 <Typography variant="caption" align="right" fontWeight="bold" sx={numeric}>
-                                    {formatPercent(ratingToPercent(rating, per))}
+                                    {formatPercent(ratingToPercent(rating, stat))}
                                 </Typography>
                             </Box>
                         }
@@ -168,8 +168,7 @@ const StatConverter: React.FC<{ title: React.ReactNode; description: React.React
             width: "15ch",
             align: "right",
             render: (stat) => {
-                const per = RATING_PER_PERCENT[stat];
-                const percent = ratingToPercent(rating, per);
+                const percent = ratingToPercent(rating, stat);
                 const isMastery = stat === "MASTERY";
                 const scale = isMastery ? coefficient : 1;
                 const base = isMastery ? BASE_MASTERY : 0;
@@ -178,9 +177,9 @@ const StatConverter: React.FC<{ title: React.ReactNode; description: React.React
                         <Box sx={{ width: "100%", py: 0.5 }}>
                             <NumberInput
                                 value={(base + percent) * scale}
-                                max={(base + MAX_PERCENT) * scale}
+                                max={(base + maxPercent(stat)) * scale}
                                 suffix="%"
-                                onChange={(value) => setRating(percentToRating(Math.max(value / scale - base, 0), per) ?? MAX_RAW_PERCENT * per)}
+                                onChange={(value) => setRating(percentToRating(value / scale - base, stat))}
                             />
                         </Box>
                     </GlassTooltip>
