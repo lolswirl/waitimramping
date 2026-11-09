@@ -1,12 +1,12 @@
-export type StatKey = "haste" | "crit" | "mastery" | "vers" | "leech";
-
-export const RATING_PER_PERCENT: Record<StatKey, number> = {
-    haste: 44,
-    crit: 46,
-    mastery: 46,
-    vers: 54,
-    leech: 69,
+export const RATING_PER_PERCENT = {
+    HASTE: 44,
+    CRIT: 46,
+    MASTERY: 46,
+    VERS: 54,
+    LEECH: 69,
 };
+
+export type StatKey = keyof typeof RATING_PER_PERCENT;
 
 const DR_BRACKETS = [
     { to: 30, keep: 1 },
@@ -31,13 +31,22 @@ export const ratingToPercent = (rating: number, perPercent: number): number => {
     return total;
 };
 
-export const MAX_PERCENT = ratingToPercent(Number.POSITIVE_INFINITY, 1);
-
-export const currentPenalty = (rating: number, perPercent: number): number => {
-    const raw = Math.max(rating, 0) / perPercent;
-    const bracket = DR_BRACKETS.find(({ to }) => raw <= to);
-    return bracket ? 1 - bracket.keep : 1;
+export const drBreakdown = (rating: number, perPercent: number) => {
+    const total = Math.max(rating, 0);
+    const raw = Math.min(total / perPercent, MAX_RAW_PERCENT);
+    const rows: { penalty: number; rating: number; percent: number }[] = [];
+    let from = 0;
+    for (const { to, keep } of DR_BRACKETS) {
+        if (raw <= from) break;
+        const width = Math.min(raw, to) - from;
+        rows.push({ penalty: 1 - keep, rating: width * perPercent, percent: width * keep });
+        from = to;
+    }
+    if (total > MAX_RAW_PERCENT * perPercent) rows.push({ penalty: 1, rating: total - MAX_RAW_PERCENT * perPercent, percent: 0 });
+    return rows;
 };
+
+export const MAX_PERCENT = ratingToPercent(Number.POSITIVE_INFINITY, 1);
 
 export const percentToRating = (percent: number, perPercent: number): number | null => {
     let remaining = Math.max(percent, 0);
