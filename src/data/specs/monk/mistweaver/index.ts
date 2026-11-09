@@ -15,6 +15,7 @@ import TIER from '@data/items/tier';
 import type spell from '@data/spells/spell';
 import type { StoredInteractions } from '@data/interactions/types';
 import MISTWEAVER_MONK_INTERACTIONS from '@data/specs/monk/mistweaver/interactions.json';
+import { BASE_MASTERY } from '@data/shared/stats';
 
 const MISTWEAVER_TIER_SET = new Map<spell, boolean>([
   [TIER.T36_MISTWEAVER_2SET, true],
@@ -41,7 +42,7 @@ const MISTWEAVER_MONK = ({
   tierSet: MISTWEAVER_TIER_SET,
   stats: {
     intellect: 620,
-    mastery: MASTERY_COEFFICIENT * 8, // 249.48%
+    mastery: MASTERY_COEFFICIENT * BASE_MASTERY,
     crit: 0,
     versatility: 0,
     haste: 0,

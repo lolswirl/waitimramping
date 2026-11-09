@@ -3,6 +3,9 @@ import PRIEST_SPELLS from '@data/specs/priest/spells';
 import DISCIPLINE_PRIEST_SPELLS from '@data/specs/priest/discipline/spells';
 import DISCIPLINE_PRIEST_TALENTS from '@data/specs/priest/discipline/talents';
 import DISCIPLINE_PRIEST_ROTATIONS from '@data/specs/priest/discipline/rotations';
+import { BASE_MASTERY } from '@data/shared/stats';
+
+const MASTERY_COEFFICIENT = 1.35;
 
 const DISCIPLINE_PRIEST = ({
   key: "priest_discipline",
@@ -13,10 +16,10 @@ const DISCIPLINE_PRIEST = ({
   name: 'Discipline',
   class: 'Priest',
   color: '#e1cbd2',
-  masteryCoefficient: 1.35,
+  masteryCoefficient: MASTERY_COEFFICIENT,
   stats: {
     intellect: 0,
-    mastery: 1.35 * 8, // 10.8%
+    mastery: MASTERY_COEFFICIENT * BASE_MASTERY,
     crit: 0,
     versatility: 0,
     haste: 0,

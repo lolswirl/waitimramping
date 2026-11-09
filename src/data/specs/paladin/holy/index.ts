@@ -4,6 +4,9 @@ import HOLY_PALADIN_SPELLS from '@data/specs/paladin/holy/spells';
 import HOLY_PALADIN_TALENTS from '@data/specs/paladin/holy/talents';
 import HOLY_PALADIN_ROTATIONS from '@data/specs/paladin/holy/rotations';
 import HOLY_PALADIN_BUGS from '@data/specs/paladin/holy/bugs';
+import { BASE_MASTERY } from '@data/shared/stats';
+
+const MASTERY_COEFFICIENT = 1.5;
 
 const HOLY_PALADIN = ({
   key: "paladin_holy",
@@ -15,10 +18,10 @@ const HOLY_PALADIN = ({
   color: "#ffe38e",
   rotations: HOLY_PALADIN_ROTATIONS,
   bugs: HOLY_PALADIN_BUGS,
-  masteryCoefficient: 1.5,
+  masteryCoefficient: MASTERY_COEFFICIENT,
   stats: {
     intellect: 0,
-    mastery: 1.5 * 8, // 12%
+    mastery: MASTERY_COEFFICIENT * BASE_MASTERY,
     crit: 0,
     versatility: 0,
     haste: 0,

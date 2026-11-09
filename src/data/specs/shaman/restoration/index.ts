@@ -4,6 +4,9 @@ import RESTORATION_SHAMAN_SPELLS from "@data/specs/shaman/restoration/spells";
 import RESTORATION_SHAMAN_TALENTS from "@data/specs/shaman/restoration/talents";
 import RESTORATION_SHAMAN_ROTATIONS from "@data/specs/shaman/restoration/rotations";
 import RESTORATION_SHAMAN_BUGS from "@data/specs/shaman/restoration/bugs";
+import { BASE_MASTERY } from "@data/shared/stats";
+
+const MASTERY_COEFFICIENT = 3.0;
 
 const RESTORATION_SHAMAN = ({
   key: "shaman_restoration",
@@ -15,10 +18,10 @@ const RESTORATION_SHAMAN = ({
   name: "Restoration",
   class: "Shaman",
   color: "#7cb63c",
-  masteryCoefficient: 3.0,
+  masteryCoefficient: MASTERY_COEFFICIENT,
   stats: {
     intellect: 0,
-    mastery: 3.0 * 8, // 24%
+    mastery: MASTERY_COEFFICIENT * BASE_MASTERY,
     crit: 0,
     versatility: 0,
     haste: 0,

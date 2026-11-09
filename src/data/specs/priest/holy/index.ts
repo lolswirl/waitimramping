@@ -3,6 +3,9 @@ import PRIEST_SPELLS from '@data/specs/priest/spells';
 import HOLY_PRIEST_SPELLS from '@data/specs/priest/holy/spells';
 import HOLY_PRIEST_TALENTS from '@data/specs/priest/holy/talents';
 import HOLY_PRIEST_ROTATIONS from '@data/specs/priest/holy/rotations';
+import { BASE_MASTERY } from '@data/shared/stats';
+
+const MASTERY_COEFFICIENT = 0.908437;
 
 const HOLY_PRIEST = ({
   key: "priest_holy",
@@ -13,10 +16,10 @@ const HOLY_PRIEST = ({
   name: 'Holy',
   class: 'Priest',
   color: '#668ea7',
-  masteryCoefficient: 0.908437,
+  masteryCoefficient: MASTERY_COEFFICIENT,
   stats: {
     intellect: 0,
-    mastery: 0.908437 * 8, // 7.267496%
+    mastery: MASTERY_COEFFICIENT * BASE_MASTERY,
     crit: 0,
     versatility: 0,
     haste: 0,
