@@ -1,23 +1,19 @@
 "use client";
 import { SpecChip } from "@components/FilterChips/FilterChips";
-import { GlassTooltip } from "@components/Glass";
+import { GlassTooltip, GlassTooltipRule } from "@components/Glass";
 import PageHeader from "@components/PageHeader/PageHeader";
 import SwirlTable, { type SwirlColumn } from "@components/SwirlTable/SwirlTable";
 import { motion } from "@components/Theme/motion";
-import { CHIP_HEIGHT, CONTENT_WIDTH, FONT, HAIRLINE, MONO_FONT } from "@components/Theme/tokens";
+import { CHIP_HEIGHT, CONTENT_WIDTH, FONT, MONO_FONT } from "@components/Theme/tokens";
 import { useSpec } from "@context/SpecContext";
-import { STAT_COLORS, STATS } from "@data/shared/stats";
+import { BASE_MASTERY, type RatedStat, STAT_COLORS, STAT_RATINGS, STATS } from "@data/shared/stats";
 import { Box, Container, InputBase, Typography } from "@mui/material";
 import { formatNumber, formatPercent } from "@util/stringManipulation";
 import React, { useState } from "react";
 
-import { drBreakdown, maxPercent, maxRating, percentToRating, ratingToPercent, STAT_CONVERSIONS, type StatKey } from "./convert";
+import { drBreakdown, lostRating, maxPercent, maxRating, percentToRating, ratingToPercent } from "./convert";
 
-const STAT_KEYS = Object.keys(STAT_CONVERSIONS) as StatKey[];
-
-const tooltipRule = <Box sx={{ gridColumn: "1 / -1", height: "1px", backgroundColor: HAIRLINE, my: 0.25 }} />;
-
-const BASE_MASTERY = 8;
+const STAT_KEYS = Object.keys(STAT_RATINGS) as RatedStat[];
 
 const MAX_RATING = Math.max(...STAT_KEYS.map(maxRating));
 
@@ -81,13 +77,62 @@ const NumberInput: React.FC<{ label?: string; value: number; max: number; suffix
     );
 };
 
+const TooltipCell: React.FC<{ children: React.ReactNode; label?: boolean; bold?: boolean }> = ({ children, label, bold }) => (
+    <Typography
+        variant="caption"
+        align={label ? "left" : "right"}
+        color={label && !bold ? "text.secondary" : undefined}
+        fontWeight={bold ? "bold" : undefined}
+        sx={numeric}
+    >
+        {children}
+    </Typography>
+);
+
+const penaltyLabel = (penalty: number) => (penalty === 0 ? "no dr" : penalty === 1 ? "over cap" : `${Math.round(penalty * 100)}% dr`);
+
+const DrCell: React.FC<{ rating: number; stat: RatedStat }> = ({ rating, stat }) => {
+    const { per } = STAT_RATINGS[stat];
+    const lost = lostRating(rating, stat);
+    if (lost <= 0) return <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.disabled" }}>–</Typography>;
+
+    const breakdown = (
+        <Box sx={{ display: "grid", gridTemplateColumns: "auto auto auto", columnGap: 1.5, rowGap: 0.25 }}>
+            {drBreakdown(rating, stat).map((row) => (
+                <React.Fragment key={row.penalty}>
+                    <TooltipCell label>{penaltyLabel(row.penalty)}</TooltipCell>
+                    <TooltipCell>{formatNumber(row.rating, 0)}</TooltipCell>
+                    <TooltipCell>{formatPercent(row.percent)}</TooltipCell>
+                </React.Fragment>
+            ))}
+            <GlassTooltipRule />
+            <TooltipCell label>lost</TooltipCell>
+            <TooltipCell>-{formatNumber(lost, 0)}</TooltipCell>
+            <TooltipCell>-{formatPercent(lost / per)}</TooltipCell>
+            <TooltipCell label bold>
+                kept
+            </TooltipCell>
+            <TooltipCell bold>{formatNumber(rating - lost, 0)}</TooltipCell>
+            <TooltipCell bold>{formatPercent(ratingToPercent(rating, stat))}</TooltipCell>
+        </Box>
+    );
+
+    return (
+        <GlassTooltip placement="left" title={breakdown}>
+            <Box component="span" sx={{ display: "inline-block", cursor: "help", textDecoration: "underline dotted", textUnderlineOffset: 3 }}>
+                <Typography sx={{ ...numeric, fontSize: FONT.body }}>-{formatPercent(lost / per)}</Typography>
+            </Box>
+        </GlassTooltip>
+    );
+};
+
 const StatConverter: React.FC<{ title: React.ReactNode; description: React.ReactNode }> = ({ title, description }) => {
     const { spec, setSpec } = useSpec();
     const [rating, setRating] = useState(0);
 
     const coefficient = spec.masteryCoefficient;
 
-    const columns: SwirlColumn<StatKey>[] = [
+    const columns: SwirlColumn<RatedStat>[] = [
         {
             key: "stat",
             label: "stat",
@@ -99,68 +144,14 @@ const StatConverter: React.FC<{ title: React.ReactNode; description: React.React
             label: "per 1%",
             width: "0.6fr",
             align: "right",
-            render: (stat) => <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.secondary" }}>{STAT_CONVERSIONS[stat].per}</Typography>,
+            render: (stat) => <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.secondary" }}>{STAT_RATINGS[stat].per}</Typography>,
         },
         {
             key: "dr",
-            label: (
-                <GlassTooltip title="Secondary: 10% penalty from 30%, 20% from 39%, 30% from 47%, 40% from 54%, 50% from 66%, capped at 126%. Tertiary: 20% penalty from 10%, 40% from 14%, 60% from 17%, capped at 28.6%">
-                    <span>dr</span>
-                </GlassTooltip>
-            ),
+            label: "dr",
             width: "0.8fr",
             align: "right",
-            render: (stat) => {
-                const { per } = STAT_CONVERSIONS[stat];
-                const rows = drBreakdown(rating, stat);
-                const lostRating = rows.reduce((sum, r) => sum + r.rating * r.penalty, 0);
-                if (lostRating <= 0) return <Typography sx={{ ...numeric, fontSize: FONT.body, color: "text.disabled" }}>–</Typography>;
-                return (
-                    <GlassTooltip
-                        placement="left"
-                        title={
-                            <Box sx={{ display: "grid", gridTemplateColumns: "auto auto auto", columnGap: 1.5, rowGap: 0.25 }}>
-                                {rows.map((r) => (
-                                    <React.Fragment key={r.penalty}>
-                                        <Typography variant="caption" color="text.secondary">
-                                            {r.penalty === 0 ? "no dr" : r.penalty === 1 ? "over cap" : `${Math.round(r.penalty * 100)}% dr`}
-                                        </Typography>
-                                        <Typography variant="caption" align="right" sx={numeric}>
-                                            {formatNumber(r.rating, 0)}
-                                        </Typography>
-                                        <Typography variant="caption" align="right" sx={numeric}>
-                                            {formatPercent(r.percent)}
-                                        </Typography>
-                                    </React.Fragment>
-                                ))}
-                                {tooltipRule}
-                                <Typography variant="caption" color="text.secondary">
-                                    lost
-                                </Typography>
-                                <Typography variant="caption" align="right" sx={numeric}>
-                                    -{formatNumber(lostRating, 0)}
-                                </Typography>
-                                <Typography variant="caption" align="right" sx={numeric}>
-                                    -{formatPercent(lostRating / per)}
-                                </Typography>
-                                <Typography variant="caption" fontWeight="bold">
-                                    kept
-                                </Typography>
-                                <Typography variant="caption" align="right" fontWeight="bold" sx={numeric}>
-                                    {formatNumber(rating - lostRating, 0)}
-                                </Typography>
-                                <Typography variant="caption" align="right" fontWeight="bold" sx={numeric}>
-                                    {formatPercent(ratingToPercent(rating, stat))}
-                                </Typography>
-                            </Box>
-                        }
-                    >
-                        <Box component="span" sx={{ display: "inline-block", cursor: "help", textDecoration: "underline dotted", textUnderlineOffset: 3 }}>
-                            <Typography sx={{ ...numeric, fontSize: FONT.body }}>-{formatPercent(lostRating / per)}</Typography>
-                        </Box>
-                    </GlassTooltip>
-                );
-            },
+            render: (stat) => <DrCell rating={rating} stat={stat} />,
         },
         {
             key: "percent",

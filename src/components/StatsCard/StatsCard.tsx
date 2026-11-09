@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 import { GlassTooltip } from '@components/Glass';
 import { RestartAlt } from '@components/Icons';
 import { FieldCells, type FieldDef } from '@components/FieldCells/FieldCells';
-import type { Stats } from '@data/shared/stats';
+import { BASE_MASTERY, type Stats } from '@data/shared/stats';
 import type { specialization } from '@data/class';
 import { FONT } from "@components/Theme/tokens";
 
@@ -80,7 +80,7 @@ const readStored = (storageKey: string): Record<string, unknown> => {
 };
 
 const shownFields = (spec?: specialization, fields?: (keyof StatsCardOptions)[]) => {
-    const masteryMin = spec ? spec.masteryCoefficient * 8 : 0;
+    const masteryMin = spec ? spec.masteryCoefficient * BASE_MASTERY : 0;
     return [...baseFields, ...secondaryFields]
         .map(field => field.key === 'mastery' ? { ...field, min: masteryMin } : field)
         .filter(field => !fields || fields.includes(field.key as keyof StatsCardOptions));
