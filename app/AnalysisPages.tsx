@@ -215,7 +215,7 @@ export const statConverter = {
     label: "Stat Converter",
     path: "/analysis/stat-converter",
     preview: "/previews/stat-converter.png",
-    description: "Convert secondary stat rating to percent and back, with diminishing returns and unscaled mastery",
+    description: "Convert stat rating to percent and back, with diminishing returns",
     tags: [],
     createdDate: date(2026, 11, 4),
     component: StatConverter,
