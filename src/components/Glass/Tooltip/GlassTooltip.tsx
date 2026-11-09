@@ -1,4 +1,4 @@
-import { Tooltip, type TooltipProps } from "@mui/material";
+import { Box, Tooltip, type TooltipProps } from "@mui/material";
 import { BLUR, HAIRLINE } from "@components/Theme/tokens";
 
 // solid so it covers the box border where the arrow joins it
@@ -48,3 +48,5 @@ export const GlassTooltip = (props: TooltipProps) => {
         />
     );
 };
+
+export const GlassTooltipRule = () => <Box sx={{ gridColumn: "1 / -1", height: "1px", backgroundColor: HAIRLINE, my: 0.25 }} />;

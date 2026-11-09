@@ -7,7 +7,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { GlassTooltip } from "@components/Glass";
+import { GlassTooltip, GlassTooltipRule } from "@components/Glass";
 import SwirlTable, { type SwirlColumn } from "@components/SwirlTable/SwirlTable";
 
 import PageHeader from "@components/PageHeader/PageHeader";
@@ -157,8 +157,6 @@ const numeric = { fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" };
 
 const formatMultiplier = (multiplier: number) => `×${parseFloat(multiplier.toFixed(3))}`;
 
-const tooltipRule = <Box sx={{ gridColumn: "1 / -1", height: "1px", backgroundColor: HAIRLINE, my: 0.25 }} />;
-
 const dash = <Typography variant="body2" color="text.disabled">—</Typography>;
 
 const EmptyMessage: React.FC<{ message: string; hint: string }> = ({ message, hint }) => (
@@ -299,14 +297,14 @@ const SpellReference: React.FC<{ title: React.ReactNode; description: React.Reac
               <Box sx={{ display: "grid", gridTemplateColumns: "auto auto", columnGap: 1.5, rowGap: 0.25 }}>
                 <Typography variant="caption" color="text.secondary">base</Typography>
                 <Typography variant="caption" align="right" sx={numeric}>{formatPercent(row.baseSpCoeff)}</Typography>
-                {tooltipRule}
+                <GlassTooltipRule />
                 {row.modifiers.map((m, i) => (
                   <React.Fragment key={i}>
                     <Typography variant="caption" color="text.secondary">{m.label.toLowerCase()}</Typography>
                     <Typography variant="caption" align="right" sx={numeric}>{formatMultiplier(m.multiplier)}</Typography>
                   </React.Fragment>
                 ))}
-                {tooltipRule}
+                <GlassTooltipRule />
                 <Typography variant="caption" color="text.secondary">total multiplier</Typography>
                 <Typography variant="caption" align="right" sx={numeric}>{formatMultiplier(totalMultiplier)}</Typography>
                 <Typography variant="caption" fontWeight="bold">effective</Typography>

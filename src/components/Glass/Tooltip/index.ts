@@ -1,1 +1,1 @@
-export { GlassTooltip } from "./GlassTooltip";
+export { GlassTooltip, GlassTooltipRule } from "./GlassTooltip";
