@@ -194,7 +194,7 @@ const BugDialog: React.FC<BugDialogProps> = ({ open, bug, onClose, shareQuery })
     };
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth PaperProps={{ sx: BUG_DIALOG_PAPER_SX }}>
+        <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth disableRestoreFocus PaperProps={{ sx: BUG_DIALOG_PAPER_SX }}>
             <BugDetails
                 bug={bug}
                 onClose={onClose}
